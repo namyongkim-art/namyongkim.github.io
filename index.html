@@ -1,101 +1,431 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>KIM NAMYONG — Artist</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KIM NAMYONG</title>
+
 <style>
-*{box-sizing:border-box} html{scroll-behavior:smooth}
-body{margin:0;background:#fff;color:#111;font-family:Arial,"Noto Sans KR",sans-serif;line-height:1.65}
-a{color:inherit;text-decoration:none}
-header{position:sticky;top:0;background:rgba(255,255,255,.96);border-bottom:1px solid #eee;z-index:10}
-.nav{max-width:1400px;margin:auto;padding:20px 28px;display:flex;justify-content:space-between;gap:30px;align-items:center}
-.logo{font-size:18px;letter-spacing:.08em;font-weight:600}.links{display:flex;gap:24px;font-size:12px;letter-spacing:.08em}
-main{max-width:1400px;margin:auto;padding:0 28px}
-.hero{min-height:78vh;display:flex;flex-direction:column;justify-content:center;padding:80px 0}
-.hero img{width:100%;max-height:72vh;object-fit:contain;object-position:center}
-.hero-title{margin-top:28px;font-size:14px;letter-spacing:.04em}
-section{padding:100px 0;border-top:1px solid #eee}
-h2{font-size:13px;font-weight:500;letter-spacing:.14em;margin:0 0 45px}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:70px 40px}
-.work img{width:100%;display:block;cursor:pointer}
-.meta{padding-top:15px;font-size:12px;color:#444}.meta strong{color:#111;font-weight:500}
-.about{max-width:820px;font-size:15px}
-.about p{margin:0 0 22px}
-.columns{display:grid;grid-template-columns:1fr 1fr;gap:70px}
-.list{font-size:13px}.list p{margin:0 0 12px}
-footer{padding:60px 0;font-size:11px;color:#777}
-@media(max-width:700px){
- .nav{padding:16px}.links{gap:12px;font-size:10px;flex-wrap:wrap;justify-content:flex-end} main{padding:0 16px}
- .hero{min-height:auto;padding:55px 0 80px}.grid,.columns{grid-template-columns:1fr;gap:50px}
- section{padding:70px 0}.about{font-size:14px}
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #fff;
+  color: #111;
+  font-family: Arial, "Noto Sans KR", sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(255,255,255,0.96);
+  border-bottom: 1px solid #eee;
+}
+
+.nav {
+  max-width: 1400px;
+  margin: auto;
+  padding: 22px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+nav {
+  display: flex;
+  gap: 28px;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+}
+
+nav a:hover {
+  opacity: 0.45;
+}
+
+main {
+  max-width: 1400px;
+  margin: auto;
+  padding: 0 32px;
+}
+
+.hero {
+  min-height: 86vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 70px 0;
+}
+
+.hero img {
+  width: min(900px, 90%);
+  max-height: 75vh;
+  object-fit: contain;
+}
+
+section {
+  padding: 130px 0;
+  border-top: 1px solid #eee;
+}
+
+.section-title {
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  margin-bottom: 55px;
+  color: #555;
+}
+
+.intro {
+  max-width: 850px;
+  font-size: 20px;
+  line-height: 1.9;
+}
+
+.statement {
+  max-width: 850px;
+  margin-top: 55px;
+  font-size: 25px;
+  line-height: 1.7;
+}
+
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 80px 45px;
+}
+
+.work img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.work-info {
+  margin-top: 16px;
+}
+
+.work-title {
+  font-size: 14px;
+  letter-spacing: 0.05em;
+}
+
+.work-meta {
+  margin-top: 5px;
+  font-size: 12px;
+  color: #777;
+}
+
+.text-column {
+  max-width: 950px;
+}
+
+.cv-group {
+  margin-bottom: 55px;
+}
+
+.cv-heading {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.cv-item {
+  font-size: 14px;
+  margin-bottom: 7px;
+}
+
+.contact {
+  font-size: 16px;
+  line-height: 2;
+}
+
+footer {
+  max-width: 1400px;
+  margin: auto;
+  padding: 50px 32px;
+  border-top: 1px solid #eee;
+  font-size: 11px;
+  color: #777;
+}
+
+@media (max-width: 700px) {
+  .nav {
+    padding: 18px 18px;
+    display: block;
+  }
+
+  nav {
+    margin-top: 12px;
+    gap: 15px;
+    flex-wrap: wrap;
+    font-size: 11px;
+  }
+
+  main {
+    padding: 0 18px;
+  }
+
+  .hero {
+    min-height: 70vh;
+  }
+
+  section {
+    padding: 90px 0;
+  }
+
+  .works-grid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  .intro {
+    font-size: 17px;
+  }
+
+  .statement {
+    font-size: 20px;
+  }
 }
 </style>
 </head>
+
 <body>
-<header><nav class="nav">
-<a class="logo" href="#">KIM NAMYONG</a>
-<div class="links"><a href="#works">WORKS</a><a href="#about">ABOUT</a><a href="#exhibitions">EXHIBITIONS</a><a href="#cv">CV</a><a href="#contact">CONTACT</a></div>
-</nav></header>
+
+<header>
+  <div class="nav">
+    <div class="logo">KIM NAMYONG</div>
+    <nav>
+      <a href="#works">WORKS</a>
+      <a href="#about">ABOUT</a>
+      <a href="#exhibitions">EXHIBITIONS</a>
+      <a href="#cv">CV</a>
+      <a href="#contact">CONTACT</a>
+    </nav>
+  </div>
+</header>
 
 <main>
-<section class="hero" style="border:0">
-<img src="works/DIFFERENCE_1601.jpg" alt="KIM NAMYONG, DIFFERENCE 2501">
-<div class="hero-title">실제(實際)와 실재(實在)</div>
-</section>
 
+<!-- HOME -->
+<div class="hero">
+  <img src="works/DIFFERENCE_2304.jpg" alt="KIM NAMYONG">
+</div>
+
+
+<!-- WORKS -->
 <section id="works">
-<h2>WORKS</h2>
-<div class="grid">
-<div class="work"><img src="works/DIFFERENCE_1601.jpg" alt="DIFFERENCE_1601"><div class="meta"><strong>DIFFERENCE_1601</strong><br>Oil painting on wood panel</div></div>
-<div class="work"><img src="works/DIFFERENCE_2303.jpg" alt="DIFFERENCE_2303"><div class="meta"><strong>DIFFERENCE_2303</strong><br>Oil painting on wood panel</div></div>
-<div class="work"><img src="works/DIFFERENCE_2304.jpg" alt="DIFFERENCE_2304"><div class="meta"><strong>DIFFERENCE_2304</strong><br>Oil painting on wood panel</div></div>
-<div class="work"><img src="works/DIFFERENCE_2324.jpg" alt="DIFFERENCE_2324"><div class="meta"><strong>DIFFERENCE_2324</strong><br>Oil painting on wood panel</div></div>
-<div class="work"><img src="works/DIFFERENCE_1601.jpg" alt="DIFFERENCE_2501"><div class="meta"><strong>DIFFERENCE_2501</strong><br>Oil painting on wood panel</div></div>
-</div>
+  <div class="section-title">WORKS</div>
+
+  <div class="works-grid">
+
+    <div class="work">
+      <img src="works/DIFFERENCE_2304.jpg" alt="DIFFERENCE 2304">
+      <div class="work-info">
+        <div class="work-title">DIFFERENCE 2304</div>
+        <div class="work-meta">Oil painting on wood panel</div>
+      </div>
+    </div>
+
+    <div class="work">
+      <img src="works/DIFFERENCE_2303.jpg" alt="DIFFERENCE 2303">
+      <div class="work-info">
+        <div class="work-title">DIFFERENCE 2303</div>
+        <div class="work-meta">Oil painting on wood panel</div>
+      </div>
+    </div>
+
+    <div class="work">
+      <img src="works/DIFFERENCE_2501.jpg" alt="DIFFERENCE 2501">
+      <div class="work-info">
+        <div class="work-title">DIFFERENCE 2501</div>
+        <div class="work-meta">Oil painting on wood panel</div>
+      </div>
+    </div>
+
+    <div class="work">
+      <img src="works/DIFFERENCE_2324.jpg" alt="DIFFERENCE 2324">
+      <div class="work-info">
+        <div class="work-title">DIFFERENCE 2324</div>
+        <div class="work-meta">Oil painting on wood panel</div>
+      </div>
+    </div>
+
+    <div class="work">
+      <img src="works/DIFFERENCE_1601.jpg" alt="DIFFERENCE 1601">
+      <div class="work-info">
+        <div class="work-title">DIFFERENCE 1601</div>
+        <div class="work-meta">Oil painting on wood panel</div>
+      </div>
+    </div>
+
+  </div>
 </section>
 
+
+<!-- ABOUT -->
 <section id="about">
-<h2>ABOUT</h2>
-<div class="about">
-<p>김남용은 실제하는 물질과 회화적 재현의 관계를 바탕으로, 우리가 공간과 깊이를 어떻게 지각하는지를 탐구한다.</p>
-<p>실제 목재 위에 회화적 이미지를 구축하고, 선 원근법과 빛과 그림자, 형태의 변환을 통해 하나의 평면 안에 서로 다른 깊이와 공간을 구성한다. 실제의 물질과 그려진 이미지가 한 화면에서 교차하면서, 보는 것과 느끼는 것 사이의 차이가 드러난다.</p>
-<p>최근 작업에서는 사물의 재현을 넘어 프레임, 면, 틈, 방향과 깊이의 관계를 더욱 적극적으로 다루고 있다. 실재하는 물질 위에 비실재하는 공간을 구축하고 그것을 다중의 깊이로 분절함으로써, 회화가 재현하는 공간과 관람자가 지각하는 공간 사이의 차이를 탐구한다.</p>
-</div>
+  <div class="section-title">ABOUT</div>
+
+  <div class="intro">
+    김남용은 실제하는 물질과 회화적 재현의 관계를 통해,
+    우리가 공간을 어떻게 보고 인식하는지를 탐구한다.
+    <br><br>
+    작가는 실제 목재를 화면의 물질적 기반으로 사용하고,
+    그 위에 빛과 그림자, 원근법, 투시와 같은 회화적 방법을 통해
+    공간과 사물을 재현한다.
+    실제로 존재하는 물질과 그것을 재현한 이미지가 하나의 평면 안에서
+    만나면서, 관람자는 화면을 실제 공간처럼 인식하게 된다.
+    <br><br>
+    그러나 가까이 다가갈수록 이러한 공간의 감각은 흔들린다.
+    실제와 이미지, 평면과 깊이, 물질과 재현 사이의 구분이 불분명해지면서
+    우리가 보고 있다고 믿는 공간이 사실은 지각의 과정 속에서
+    구성되고 있음을 드러낸다.
+    <br><br>
+    초기 작업에서 출발한 《실제(實際)와 실재(實在)》는
+    이러한 탐구를 지속적으로 확장해왔다.
+    최근에는 특정한 사물의 재현을 넘어 화면의 구조와 프레임,
+    방향, 간격, 그림자 등을 통해 다중의 깊이와 공간의 구조를 구성하고,
+    지각의 불안정성 자체를 회화의 대상으로 삼는다.
+    <br><br>
+    작가에게 회화는 단순히 대상을 재현하는 매체가 아니라,
+    보이는 것과 느끼는 것 사이의 차이를 경험하게 하는 공간이다.
+  </div>
+
+  <div class="statement">
+    “나는 실재하는 물질 위에 비실재하는 공간을 구축하고,
+    그 공간을 통해 지각의 구조를 탐구한다.”
+  </div>
 </section>
 
+
+<!-- EXHIBITIONS -->
 <section id="exhibitions">
-<h2>EXHIBITIONS</h2>
-<div class="columns"><div class="list">
-<p><strong>2026</strong> 《시선의 재구성》, 안국문화재단 AG갤러리, 경기</p>
-<p><strong>2025</strong> HIAF</p>
-</div><div class="list">
-<p><strong>2023</strong> 《실제(實際)와 실재(實在)》, 앤버갤러리, 서울</p>
-<p><strong>2020</strong> 《실제(實際)와 실재(實在)》, 갤러리 초이, 서울</p>
-<p><strong>2018</strong> 《실제(實際)와 실재(實在)》, 통인옥션갤러리, 서울</p>
-<p><strong>2016</strong> 《실제(實際)와 실재(實在)》, 통인옥션갤러리, 서울</p>
-<p><strong>2015</strong> 《THE DIFFERENCE》, 본화랑, 서울</p>
-<p><strong>2004</strong> 《정서적 재현》, 갤러리신라-큐브C, 대구</p>
-</div></div>
+  <div class="section-title">SELECTED EXHIBITIONS</div>
+
+  <div class="text-column">
+
+    <div class="cv-group">
+      <div class="cv-heading">SOLO EXHIBITIONS</div>
+
+      <div class="cv-item">2026 《DIFFERENCE — 구조된 환영》, 본갤러리, 서울</div>
+      <div class="cv-item">2026 《DIFFERENCE — 인식의 구조》, 와스갤러리, 서울</div>
+      <div class="cv-item">2026 《DIFFERENCE — 보이는 것의 구조》, 통인옥션갤러리, 서울</div>
+      <div class="cv-item">2023 《실제(實際)와 실재(實在)》, 앤버갤러리, 서울</div>
+      <div class="cv-item">2020 《실제(實際)와 실재(實在)》, 갤러리 초이, 서울</div>
+      <div class="cv-item">2018 《실제(實際)와 실재(實在)》, 통인옥션갤러리, 서울</div>
+      <div class="cv-item">2016 《실제(實際)와 실재(實在)》, 통인옥션갤러리, 서울</div>
+      <div class="cv-item">2015 《THE DIFFERENCE》, 본화랑, 서울</div>
+      <div class="cv-item">2004 《정서적 재현》, 갤러리신라-큐브C, 대구</div>
+    </div>
+
+    <div class="cv-group">
+      <div class="cv-heading">GROUP EXHIBITIONS</div>
+
+      <div class="cv-item">2026 《이면의 세계》, 한국문화재단 GALLERY KAF, 서울</div>
+      <div class="cv-item">2026 화랑미술제 in 수원, 수원컨벤션센터, 수원</div>
+      <div class="cv-item">2026 《시선의 재구성》, 안국문화재단 AG갤러리, 경기</div>
+      <div class="cv-item">2026 AFIH 2026, Hotel Eclat Beijing, 중국</div>
+      <div class="cv-item">2025 HIAF 2025, MGM Shanghai West Bund, 중국</div>
+      <div class="cv-item">2025 서울 아트쇼, 코엑스, 서울</div>
+      <div class="cv-item">2024 언노운바이브 아트페어, 부띠크모나코 뮤지엄, 서울</div>
+      <div class="cv-item">2023 아트경남 2023, 그랜드머큐어 앰배서더 창원, 경남</div>
+      <div class="cv-item">2021 《잠시 쉬어가는 곳》, 인천공항, 경기</div>
+      <div class="cv-item">2020 《입체》, AG갤러리, 서울</div>
+      <div class="cv-item">2019 아트경기 팝업갤러리, 국립암센터, 고양</div>
+      <div class="cv-item">2019 《경기, 아트로 물들다》, 경기도청, 수원</div>
+      <div class="cv-item">2019 아트경기 2019, 공간1986, 수원</div>
+      <div class="cv-item">2019 아트경기 2019, S Factory A동, 서울</div>
+      <div class="cv-item">2019 KAFA 아트페어, KINTEX, 고양</div>
+      <div class="cv-item">2018 작은 그림전, 통인갤러리, 서울</div>
+      <div class="cv-item">2018 《사물에서 사물로》, AG갤러리, 서울</div>
+      <div class="cv-item">2017 《숲이 길이 되다》, SNU장학빌딩 베리타스홀, 서울</div>
+      <div class="cv-item">2017 GALLERY LOA 개관기념전, GALLERY LOA, 서울</div>
+      <div class="cv-item">2017 Master of Illusion, H갤러리, 서울</div>
+      <div class="cv-item">2017 한국미술협회 임원초대전, 한국미술관, 서울</div>
+      <div class="cv-item">2017 스푼 아트쇼, KINTEX, 고양</div>
+      <div class="cv-item">2017 YIAF 여수 국제아트페스티벌, 여수세계박람회장</div>
+      <div class="cv-item">2017 인도 첸나이 쳄버 비엔날레, 라릿카라아카데미, 인도</div>
+      <div class="cv-item">2016 부산국제아트페어, BEXCO, 부산</div>
+      <div class="cv-item">2016 키아프, 코엑스, 서울</div>
+      <div class="cv-item">2016 Contomporaries, GALLERY ARTPARK, 서울</div>
+      <div class="cv-item">2016 희망 동행전, 서정아트갤러리, 서울</div>
+      <div class="cv-item">2016 대구 아트페어, EXCO, 대구</div>
+      <div class="cv-item">2015 키아프, 코엑스, 서울</div>
+      <div class="cv-item">2015 Scope Basel Art Fair, Gallery MAC, 스위스</div>
+      <div class="cv-item">2015 Asia Hotel Art Fair, Conrad, 서울</div>
+      <div class="cv-item">2015 대구 아트페어, EXCO, 대구</div>
+      <div class="cv-item">2014 Asia Contemporary Art Show, Conrad, 홍콩</div>
+      <div class="cv-item">2013 Asia Contemporary Art Show, JW Marriott, 홍콩</div>
+      <div class="cv-item">2013 중앙대 발전기금전, 301갤러리, 중앙대학교</div>
+      <div class="cv-item">2012 중앙대학교 미술학부 교수작품전, 공평갤러리</div>
+      <div class="cv-item">2011 L.A 한국작가초대전, GALLERY SUN, L.A</div>
+      <div class="cv-item">그 외 다수의 단체전</div>
+    </div>
+
+  </div>
 </section>
 
+
+<!-- CV -->
 <section id="cv">
-<h2>CV</h2>
-<div class="columns"><div class="list">
-<p><strong>EDUCATION</strong></p>
-<p>서울대학교 미술대학 서양화과 졸업</p>
-<p>서울대학교 대학원 서양화 전공 졸업</p>
-</div><div class="list">
-<p><strong>COLLECTIONS</strong></p>
-<p>국립현대미술관 미술은행 · 경기도미술관 · 여수시립미술관 · 안국문화재단</p>
-<p>현대화랑 · 인갤러리 · 본화랑 · BOSS Gallery (Taiwan) · 통인옥션 · PAXCONSULTING · TOWHANDSD 외</p>
-</div></div>
+  <div class="section-title">CV</div>
+
+  <div class="text-column">
+
+    <div class="cv-group">
+      <div class="cv-heading">NAME</div>
+      <div class="cv-item">김남용 (金南鏞) / KIM NAMYONG</div>
+    </div>
+
+    <div class="cv-group">
+      <div class="cv-heading">EDUCATION</div>
+      <div class="cv-item">서울대학교 미술대학 서양화과 졸업</div>
+      <div class="cv-item">서울대학교 대학원 서양화과 서양화전공 졸업</div>
+    </div>
+
+  </div>
 </section>
 
+
+<!-- CONTACT -->
 <section id="contact">
-<h2>CONTACT</h2>
-<div class="about">KIM NAMYONG<br>Seoul, Korea<br><br>Instagram: @art_kny</div>
+  <div class="section-title">CONTACT</div>
+
+  <div class="contact">
+    KIM NAMYONG<br>
+    Seoul, Korea<br><br>
+
+    Instagram<br>
+    <a href="https://www.instagram.com/art_kny/" target="_blank">
+      @art_kny
+    </a>
+  </div>
 </section>
-<footer>© KIM NAMYONG. All rights reserved.</footer>
+
 </main>
-</body></html>
+
+<footer>
+  © KIM NAMYONG. All rights reserved.
+</footer>
+
+</body>
+</html>
