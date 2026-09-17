@@ -377,14 +377,13 @@ function parseFilename(name){
 function renderWorks(works){
   const grid=document.getElementById("worksGrid");
   grid.innerHTML="";
-
   const groups={};
   works.forEach(w=>{
-    const year=(w.year || "Other").toString();
+    const yearMatch=(w[2]||"").match(/(?:^|[^0-9])(20\\d{2})(?:[^0-9]|$)/);
+    const year=yearMatch ? yearMatch[1] : "Other";
     if(!groups[year]) groups[year]=[];
     groups[year].push(w);
   });
-
   Object.keys(groups).sort((a,b)=>{
     if(a==="Other") return 1;
     if(b==="Other") return -1;
@@ -392,50 +391,50 @@ function renderWorks(works){
   }).forEach(year=>{
     const section=document.createElement("div");
     section.className="year-section";
-
     const heading=document.createElement("h3");
     heading.className="year-title";
     heading.textContent=year;
     section.appendChild(heading);
-
     const row=document.createElement("div");
     row.className="year-grid";
-
     groups[year].forEach(w=>{
       const item=document.createElement("article");
       item.className="work";
-
       const button=document.createElement("button");
       button.className="pic";
       button.type="button";
-      button.setAttribute("aria-label", w.title + " 확대");
-
+      button.setAttribute("aria-label",w[1]+" 확대");
       const img=document.createElement("img");
-      img.src=w.src;
-      img.alt=w.title;
+      img.src=fileUrl(w[0]);
+      img.alt=w[1];
+      img.loading="lazy";
       button.appendChild(img);
-
       const info=document.createElement("div");
       info.className="info";
-
       const title=document.createElement("span");
-      title.textContent=w.title;
+      title.textContent=w[1];
       info.appendChild(title);
-
       const detail=document.createElement("span");
-      detail.textContent=w.info || "";
+      detail.textContent=w[2]||"";
       info.appendChild(detail);
-
       item.appendChild(button);
       item.appendChild(info);
-
-      button.addEventListener("click",()=>openLB(w.src,w.title));
+      button.addEventListener("click",()=>openLB(fileUrl(w[0]),w[1]));
       row.appendChild(item);
     });
-
     section.appendChild(row);
     grid.appendChild(section);
   });
+}
+
+
+function openLB(src,title){
+  lbImage.src=src;
+  lbImage.alt=title||"";
+  lbNum.textContent=title||"";
+  lightbox.classList.add("on");
+  lightbox.setAttribute("aria-hidden","false");
+  document.body.style.overflow="hidden";
 }
 
 function closeLightbox(){
