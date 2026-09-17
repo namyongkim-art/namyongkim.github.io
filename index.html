@@ -172,13 +172,24 @@ footer{
 
 
 .year-section{margin:0 0 110px}
-.year-title{font-size:28px;font-weight:500;letter-spacing:.02em;margin:0 0 34px;padding-bottom:14px;border-bottom:1px solid #ddd}
-.year-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:58px 28px}
+.year-title{
+  font-size:28px;
+  font-weight:500;
+  letter-spacing:.02em;
+  margin:0 0 34px;
+  padding-bottom:14px;
+  border-bottom:1px solid #ddd;
+}
+.year-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:58px 28px;
+}
 .year-grid .work{margin:0}
-@media (max-width:1000px){
+@media(max-width:1000px){
   .year-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
 }
-@media (max-width:700px){
+@media(max-width:700px){
   .year-section{margin-bottom:70px}
   .year-title{font-size:24px;margin-bottom:24px}
   .year-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:38px 16px}
@@ -364,46 +375,62 @@ function parseFilename(name){
 }
 
 function renderWorks(works){
-  const grid=document.getElementById('worksGrid');
-  grid.innerHTML='';
+  const grid=document.getElementById("worksGrid");
+  grid.innerHTML="";
+
   const groups={};
   works.forEach(w=>{
-    const year=w.year || 'Other';
+    const year=(w.year || "Other").toString();
     if(!groups[year]) groups[year]=[];
     groups[year].push(w);
   });
 
   Object.keys(groups).sort((a,b)=>{
-    if(a==='Other') return 1;
-    if(b==='Other') return -1;
+    if(a==="Other") return 1;
+    if(b==="Other") return -1;
     return Number(b)-Number(a);
   }).forEach(year=>{
-    const section=document.createElement('section');
-    section.className='year-section';
+    const section=document.createElement("div");
+    section.className="year-section";
 
-    const heading=document.createElement('h3');
-    heading.className='year-title';
+    const heading=document.createElement("h3");
+    heading.className="year-title";
     heading.textContent=year;
     section.appendChild(heading);
 
-    const row=document.createElement('div');
-    row.className='year-grid';
+    const row=document.createElement("div");
+    row.className="year-grid";
 
     groups[year].forEach(w=>{
-      const el=document.createElement('article');
-      el.className='work';
-      el.innerHTML=`
-        <button class="pic" type="button" aria-label="${escapeHtml(w.title)} 확대">
-          <img src="${w.src}" alt="${escapeHtml(w.title)}">
-        </button>
-        <div class="meta">
-          <div class="title">${escapeHtml(w.title)}</div>
-          ${w.size ? `<div>${escapeHtml(w.size)}</div>` : ''}
-          <div>${escapeHtml(w.medium || 'Oil painting on wood panel')}</div>
-          <div>${escapeHtml(w.year || '')}</div>
-        </div>`;
-      el.querySelector('.pic').addEventListener('click',()=>openLB(w.src,w.title));
-      row.appendChild(el);
+      const item=document.createElement("article");
+      item.className="work";
+
+      const button=document.createElement("button");
+      button.className="pic";
+      button.type="button";
+      button.setAttribute("aria-label", w.title + " 확대");
+
+      const img=document.createElement("img");
+      img.src=w.src;
+      img.alt=w.title;
+      button.appendChild(img);
+
+      const info=document.createElement("div");
+      info.className="info";
+
+      const title=document.createElement("span");
+      title.textContent=w.title;
+      info.appendChild(title);
+
+      const detail=document.createElement("span");
+      detail.textContent=w.info || "";
+      info.appendChild(detail);
+
+      item.appendChild(button);
+      item.appendChild(info);
+
+      button.addEventListener("click",()=>openLB(w.src,w.title));
+      row.appendChild(item);
     });
 
     section.appendChild(row);
