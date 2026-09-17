@@ -113,27 +113,7 @@ footer{padding:28px 20px}
 
 <section id="works">
 <div class="title">WORKS</div>
-
-<div class="work"><div class="pic" onclick="openLB('works/DIFFERENCE_2629.jpg',1)"><img src="works/DIFFERENCE_2629.jpg" alt="DIFFERENCE 2629"></div><div class="info"><span>DIFFERENCE 2629</span><span class="medium">82 × 50 cm · Oil painting on wood panel · 2026</span></div></div>
-<div class="work"><div class="pic" onclick="openLB('works/DIFFERENCE_2664.jpg',2)"><img src="works/DIFFERENCE_2664.jpg" alt="DIFFERENCE 2664"></div><div class="info"><span>DIFFERENCE 2664</span><span class="medium">48 × 80 cm · Oil painting on wood panel · 2026</span></div></div>
-<div class="work"><div class="pic" onclick="openLB('works/DIFFERENCE_2665.jpg',3)"><img src="works/DIFFERENCE_2665.jpg" alt="DIFFERENCE 2665"></div><div class="info"><span>DIFFERENCE 2665</span><span class="medium">48 × 80 cm · Oil painting on wood panel · 2026</span></div></div>
-<div class="work"><div class="pic" onclick="openLB('works/DIFFERENCE_2650.jpg',4)"><img src="works/DIFFERENCE_2650.jpg" alt="DIFFERENCE 2650"></div><div class="info"><span>DIFFERENCE 2650</span><span class="medium">43 × 80 cm · Oil painting on wood panel · 2026</span></div></div>
-<div class="work"><div class="pic" onclick="openLB('works/DIFFERENCE_2653.jpg',5)"><img src="works/DIFFERENCE_2653.jpg" alt="DIFFERENCE 2653"></div><div class="info"><span>DIFFERENCE 2653</span><span class="medium">34 × 76 cm · Oil painting on wood panel · 2026</span></div></div>
-<div class="work"><div class="pic" onclick="openLB('works/DIFFERENCE_2618.jpg',6)"><img src="works/DIFFERENCE_2618.jpg" alt="DIFFERENCE 2618"></div><div class="info"><span>DIFFERENCE 2618</span><span class="medium">60 × 39 cm · Oil painting on wood panel · 2026</span></div></div>
-<div class="work"><div class="pic" onclick="openLB('works/DIFFERENCE_1615.jpg',7)"><img src="works/DIFFERENCE_1615.jpg" alt="DIFFERENCE 1615"></div><div class="info"><span>DIFFERENCE 1615</span><span class="medium">120 × 113 cm · Oil painting on wood panel · 2016</span></div></div>
-
-<div class="work"><div class="pic" onclick="openLB('works/DIFFERENCE_1601.jpg',8)"><img src="works/DIFFERENCE_1601.jpg" alt="DIFFERENCE 1601"></div><div class="info"><span>DIFFERENCE 1601</span><span class="medium">Oil painting on wood panel · 2016</span></div></div>
-<div class="work"><div class="pic" onclick="openLB('works/DIFFERENCE_2303.jpg',9)"><img src="works/DIFFERENCE_2303.jpg" alt="DIFFERENCE 2303"></div><div class="info"><span>DIFFERENCE 2303</span><span class="medium">Oil painting on wood panel · 2023</span></div></div>
-<div class="work"><div class="pic" onclick="openLB('works/DIFFERENCE_2304.jpg',10)"><img src="works/DIFFERENCE_2304.jpg" alt="DIFFERENCE 2304"></div><div class="info"><span>DIFFERENCE 2304</span><span class="medium">Oil painting on wood panel · 2023</span></div></div>
-<div class="work"><div class="pic" onclick="openLB('works/DIFFERENCE_2324.jpg',11)"><img src="works/DIFFERENCE_2324.jpg" alt="DIFFERENCE 2324"></div><div class="info"><span>DIFFERENCE 2324</span><span class="medium">Oil painting on wood panel · 2023</span></div></div>
-<div class="work"><div class="pic" onclick="openLB('works/DIFFERENCE_2501.jpg',12)"><img src="works/DIFFERENCE_2501.jpg" alt="DIFFERENCE 2501"></div><div class="info"><span>DIFFERENCE 2501</span><span class="medium">Oil painting on wood panel · 2025</span></div></div>
-
-<div class="work"><div class="pic" onclick="openLB('works/DIFFERENCE_2667.jpg',13)"><img src="works/DIFFERENCE_2667.jpg" alt="DIFFERENCE 2667"></div><div class="info"><span>DIFFERENCE 2667</span><span class="medium">48 × 80 cm · Oil painting on wood panel · 2026</span></div></div>
-<div class="work"><div class="pic" onclick="openLB('works/DIFFERENCE_1940.jpg',14)"><img src="works/DIFFERENCE_1940.jpg" alt="DIFFERENCE 1940"></div><div class="info"><span>DIFFERENCE 1940</span><span class="medium">120 × 83 cm · Oil painting on wood panel · 2019</span></div></div>
-<div class="work"><div class="pic" onclick="openLB('works/DIFFERENCE_2620.jpg',15)"><img src="works/DIFFERENCE_2620.jpg" alt="DIFFERENCE 2620"></div><div class="info"><span>DIFFERENCE 2620</span><span class="medium">60 × 39 cm · Oil painting on wood panel · 2026</span></div></div>
-<div class="work"><div class="pic" onclick="openLB('works/DIFFERENCE_2623.jpg',16)"><img src="works/DIFFERENCE_2623.jpg" alt="DIFFERENCE 2623"></div><div class="info"><span>DIFFERENCE 2623</span><span class="medium">83 × 83 cm · Oil painting on wood panel · 2026</span></div></div>
-<div class="work"><div class="pic" onclick="openLB('works/DIFFERENCE_2659.jpg',17)"><img src="works/DIFFERENCE_2659.jpg" alt="DIFFERENCE 2659"></div><div class="info"><span>DIFFERENCE 2659</span><span class="medium">43 × 80 cm · Oil painting on wood panel · 2026</span></div></div>
-<div class="work"><div class="pic" onclick="openLB('works/DIFFERENCE_2660.jpg',18)"><img src="works/DIFFERENCE_2660.jpg" alt="DIFFERENCE 2660"></div><div class="info"><span>DIFFERENCE 2660</span><span class="medium">47 × 86 cm · Oil painting on wood panel · 2026</span></div></div>
+<div id="worksGrid"></div>
 </section>
 
 <section id="about">
@@ -205,20 +185,90 @@ Instagram:
 </div>
 
 <script>
+const knownWorks = [
+  ['DIFFERENCE_2629.jpg','DIFFERENCE 2629','82 × 50 cm · Oil painting on wood panel · 2026'],
+  ['DIFFERENCE_2664.jpg','DIFFERENCE 2664','48 × 80 cm · Oil painting on wood panel · 2026'],
+  ['DIFFERENCE_2665.jpg','DIFFERENCE 2665','48 × 80 cm · Oil painting on wood panel · 2026'],
+  ['DIFFERENCE_2650.jpg','DIFFERENCE 2650','43 × 80 cm · Oil painting on wood panel · 2026'],
+  ['DIFFERENCE_2653.jpg','DIFFERENCE 2653','34 × 76 cm · Oil painting on wood panel · 2026'],
+  ['DIFFERENCE_2618.jpg','DIFFERENCE 2618','60 × 39 cm · Oil painting on wood panel · 2026'],
+  ['DIFFERENCE_1615.jpg','DIFFERENCE 1615','120 × 113 cm · Oil painting on wood panel · 2016'],
+  ['DIFFERENCE_1601.jpg','DIFFERENCE 1601','Oil painting on wood panel · 2016'],
+  ['DIFFERENCE_2303.jpg','DIFFERENCE 2303','Oil painting on wood panel · 2023'],
+  ['DIFFERENCE_2304.jpg','DIFFERENCE 2304','Oil painting on wood panel · 2023'],
+  ['DIFFERENCE_2324.jpg','DIFFERENCE 2324','Oil painting on wood panel · 2023'],
+  ['DIFFERENCE_2501.jpg','DIFFERENCE 2501','Oil painting on wood panel · 2025'],
+  ['DIFFERENCE_2659.jpg','DIFFERENCE 2659','43 × 80 cm · Oil painting on wood panel · 2026'],
+  ['DIFFERENCE_2660.jpg','DIFFERENCE 2660','47 × 86 cm · Oil painting on wood panel · 2026'],
+  ['DIFFERENCE_2667.jpg','DIFFERENCE 2667','48 × 80 cm · Oil painting on wood panel · 2026'],
+  ['DIFFERENCE_1940.jpg','DIFFERENCE 1940','120 × 83 cm · Oil painting on wood panel · 2019'],
+  ['DIFFERENCE_2620.jpg','DIFFERENCE 2620','60 × 39 cm · Oil painting on wood panel · 2026'],
+  ['DIFFERENCE_2623.jpg','DIFFERENCE 2623','83 × 83 cm · Oil painting on wood panel · 2026']
+];
+
+function parseFilename(name){
+  const base = name.replace(/\.[^.]+$/,'');
+  const titleMatch = base.match(/DIFFERENCE\s*_?\s*(\d{3,4})/i);
+  if(!titleMatch) return null;
+  const title = 'DIFFERENCE ' + titleMatch[1];
+  const sizeMatch = base.match(/(\d+)\s*[×xX]\s*(\d+)\s*(?:㎝|cm)?/);
+  const yearMatch = base.match(/(?:^|[^0-9])(20\d{2})(?:[^0-9]|$)/);
+  const size = sizeMatch ? `${sizeMatch[1]} × ${sizeMatch[2]} cm · ` : '';
+  const year = yearMatch ? ` · ${yearMatch[1]}` : '';
+  return [name,title,`${size}Oil painting on wood panel${year}`];
+}
+
+function renderWorks(items){
+  const grid = document.getElementById('worksGrid');
+  grid.innerHTML='';
+  items.forEach((w,i)=>{
+    const work=document.createElement('div'); work.className='work';
+    const pic=document.createElement('div'); pic.className='pic';
+    const img=document.createElement('img'); img.src='works/'+encodeURIComponent(w[0]); img.alt=w[1]; img.loading=i<3?'eager':'lazy';
+    pic.appendChild(img); pic.onclick=()=>openLB('works/'+encodeURIComponent(w[0]),i+1);
+    const info=document.createElement('div'); info.className='info';
+    const title=document.createElement('span'); title.textContent=w[1];
+    const medium=document.createElement('span'); medium.className='medium'; medium.textContent=w[2];
+    info.append(title,medium); work.append(pic,info); grid.appendChild(work);
+  });
+}
+
+async function loadWorks(){
+  const fallback=[...knownWorks];
+  try{
+    const res=await fetch('https://api.github.com/repos/namyongkim-art/namyongkim.github.io/contents/works?ref=main');
+    if(!res.ok) throw new Error('GitHub API error');
+    const files=await res.json();
+    const images=files.filter(f=>f.type==='file' && /\.(jpe?g|png|webp)$/i.test(f.name));
+    const map=new Map(knownWorks.map(w=>[w[0].toLowerCase(),w]));
+    images.forEach(f=>{
+      if(!map.has(f.name.toLowerCase())){
+        const parsed=parseFilename(f.name);
+        if(parsed) map.set(f.name.toLowerCase(),parsed);
+      }
+    });
+    const extras=[...map.values()].filter(w=>!knownWorks.some(k=>k[0].toLowerCase()===w[0].toLowerCase()));
+    extras.sort((a,b)=>{
+      const na=+(a[1].match(/\d+/)||[0])[0], nb=+(b[1].match(/\d+/)||[0])[0];
+      return nb-na;
+    });
+    renderWorks([...knownWorks,...extras]);
+  }catch(e){
+    renderWorks(fallback);
+  }
+}
+
 function openLB(s,n){
-lbi.src=s;
-num.textContent=String(n).padStart(2,'0')+' / 18';
-lb.classList.add('on');
-document.body.style.overflow='hidden'
+  lbi.src=s;
+  num.textContent=String(n).padStart(2,'0')+' / '+document.querySelectorAll('.work').length;
+  lb.classList.add('on'); document.body.style.overflow='hidden'
 }
 function closeLB(e){
-if(e&&e.target===lbi)return;
-lb.classList.remove('on');
-document.body.style.overflow=''
+  if(e&&e.target===lbi)return;
+  lb.classList.remove('on'); document.body.style.overflow=''
 }
-document.addEventListener('keydown',e=>{
-if(e.key==='Escape')closeLB()
-})
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLB()});
+loadWorks();
 </script>
 </body>
 </html>
