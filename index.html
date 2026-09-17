@@ -6,7 +6,473 @@
 <title>KIM NAMYONG</title>
 <style>
 *{box-sizing:border-box}
+html{scroll-behavior:smooth}<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KIM NAMYONG</title>
+<style>
+*{box-sizing:border-box}
 html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:#fff;
+  color:#111;
+  font-family:Arial,Helvetica,sans-serif;
+  font-weight:300;
+  font-size:15px;
+}
+nav{
+  position:sticky;
+  top:0;
+  z-index:20;
+  background:#fff;
+  border-bottom:1px solid #eee;
+}
+.nav{
+  max-width:1400px;
+  margin:auto;
+  padding:22px 40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.logo{font-size:17px;letter-spacing:.08em}
+.links{display:flex;gap:30px}
+.links a{
+  font-size:13px;
+  letter-spacing:.1em;
+  color:#111;
+  text-decoration:none;
+}
+section{
+  max-width:1400px;
+  margin:auto;
+  padding:120px 40px;
+}
+.title{
+  font-size:13px;
+  letter-spacing:.15em;
+  color:#666;
+  margin-bottom:65px;
+}
+
+/* WORKS */
+#worksGrid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  column-gap:28px;
+  row-gap:60px;
+}
+.work{min-width:0}
+.pic{
+  width:100%;
+  height:260px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#fff;
+  overflow:hidden;
+  cursor:zoom-in;
+}
+.pic img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  display:block;
+}
+.info{
+  margin-top:13px;
+  font-size:14px;
+  line-height:1.6;
+  letter-spacing:.03em;
+}
+.info span{display:block}
+.medium{color:#777;margin-top:2px}
+
+/* HERO */
+.hero{
+  min-height:88vh;
+  padding:40px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+}
+.hero img{
+  max-width:100%;
+  max-height:78vh;
+  object-fit:contain;
+}
+.hero p{
+  position:absolute;
+  bottom:25px;
+  left:40px;
+  font-size:12px;
+  letter-spacing:.12em;
+}
+
+/* ABOUT / CV */
+.about{
+  max-width:900px;
+  font-size:18px;
+  line-height:2.05;
+}
+.list{max-width:1100px}
+.row{
+  display:grid;
+  grid-template-columns:85px 1fr;
+  gap:22px;
+  padding:13px 0;
+  border-bottom:1px solid #eee;
+  font-size:13px;
+  line-height:1.8;
+}
+.year{color:#777}
+
+/* CONTACT */
+.contact{font-size:14px;line-height:2.1}
+.contact a{color:#111}
+
+/* LIGHTBOX */
+.lb{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:100;
+  background:rgba(255,255,255,.98);
+  align-items:center;
+  justify-content:center;
+  padding:30px;
+}
+.lb.on{display:flex}
+.lb img{
+  max-width:94vw;
+  max-height:88vh;
+  object-fit:contain;
+}
+.lbClose{
+  position:absolute;
+  right:28px;
+  top:18px;
+  border:0;
+  background:none;
+  font-size:34px;
+  line-height:1;
+  cursor:pointer;
+  color:#111;
+}
+.lbNum{
+  position:absolute;
+  left:28px;
+  bottom:18px;
+  font-size:12px;
+  color:#777;
+}
+
+footer{
+  padding:38px 40px;
+  border-top:1px solid #eee;
+  font-size:11px;
+  color:#888;
+}
+
+
+.year-section{margin:0 0 110px}
+.year-title{font-size:28px;font-weight:500;letter-spacing:.02em;margin:0 0 34px;padding-bottom:14px;border-bottom:1px solid #ddd}
+.year-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:58px 28px}
+.year-grid .work{margin:0}
+@media (max-width:1000px){
+  .year-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media (max-width:700px){
+  .year-section{margin-bottom:70px}
+  .year-title{font-size:24px;margin-bottom:24px}
+  .year-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:38px 16px}
+}
+
+@media(max-width:1000px){
+  #worksGrid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .pic{height:230px}
+}
+@media(max-width:700px){
+  .nav{padding:17px 20px}
+  .logo{font-size:14px}
+  .links{
+    gap:12px;
+    flex-wrap:wrap;
+    justify-content:flex-end;
+    max-width:240px;
+  }
+  .links a{font-size:10px}
+  section{padding:90px 20px}
+  .title{font-size:11px;margin-bottom:50px}
+  .hero{
+    min-height:78vh;
+    padding:30px 20px 70px;
+  }
+  .hero p{left:20px;font-size:10px}
+  #worksGrid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    column-gap:14px;
+    row-gap:38px;
+  }
+  .pic{height:170px}
+  .info{
+    margin-top:10px;
+    font-size:11px;
+    line-height:1.7;
+  }
+  .about{font-size:15px;line-height:2}
+  .row{
+    grid-template-columns:58px 1fr;
+    gap:12px;
+    font-size:11px;
+  }
+  .contact{font-size:12px}
+  footer{padding:28px 20px}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="nav">
+    <div class="logo">KIM NAMYONG</div>
+    <div class="links">
+      <a href="#works">WORKS</a>
+      <a href="#about">ABOUT</a>
+      <a href="#exhibitions">EXHIBITIONS</a>
+      <a href="#cv">CV</a>
+      <a href="#contact">CONTACT</a>
+    </div>
+  </div>
+</nav>
+
+<div class="hero">
+  <img src="works/DIFFERENCE_2629.jpg" alt="DIFFERENCE 2629">
+  <p>KIM NAMYONG — DIFFERENCE</p>
+</div>
+
+<section id="works">
+  <div class="title">WORKS</div>
+  <div id="worksGrid"></div>
+</section>
+
+<section id="about">
+  <div class="title">ABOUT</div>
+  <div class="about">
+    <p>김남용은 실제하는 물질과 회화적 재현의 관계를 통해, 우리가 공간을 어떻게 보고 인식하는지를 탐구한다.</p>
+    <p>실제 목재 위에 빛과 그림자, 원근법과 투시를 이용해 존재하지 않는 공간과 깊이를 회화적으로 구성한다. 물질로서의 나무와 이미지로서의 회화가 하나의 화면 안에서 중첩되면서, 실제와 재현 사이의 경계가 흔들리게 된다.</p>
+    <p>《실제(實際)와 실재(實在)》에서 시작된 작업은 사물의 재현에서 공간의 분절과 재구성으로 확장되었으며, 최근에는 하나의 화면 안에 서로 다른 깊이를 구성하는 다중 깊이 구조에 집중하고 있다.</p>
+    <p>나는 실재하는 물질 위에 비실재하는 공간을 구축하고, 그 공간을 통해 지각의 구조를 탐구한다.</p>
+  </div>
+</section>
+
+<section id="exhibitions">
+  <div class="title">EXHIBITIONS</div>
+  <div class="list">
+    <div class="row"><span class="year">2026</span><span>시선의 재구성 — 안국문화재단 AG갤러리, 경기</span></div>
+    <div class="row"><span class="year">2025</span><span>HIAF 2025</span></div>
+    <div class="row"><span class="year">2024</span><span>언노운바이브 아트페어 — 부띠크모나코 뮤지엄, 서울</span></div>
+    <div class="row"><span class="year">2023</span><span>아트경남 2023 — 그랜드머큐어엠버서더 창원, 경남</span></div>
+    <div class="row"><span class="year">2021</span><span>잠시 쉬어가는 곳 — 인천공항, 경기</span></div>
+    <div class="row"><span class="year">2020</span><span>입체 — AG갤러리, 서울</span></div>
+    <div class="row"><span class="year">2019</span><span>아트경기 팝업갤러리 — 국립암센터, 고양</span></div>
+    <div class="row"><span class="year">2018</span><span>작은 그림전 — 통인갤러리, 서울</span></div>
+    <div class="row"><span class="year">2017</span><span>Master of Illusion — H갤러리, 서울</span></div>
+    <div class="row"><span class="year">2016</span><span>키아프 2016 — 코엑스, 서울</span></div>
+    <div class="row"><span class="year">2015</span><span>키아프 2015 — 코엑스, 서울</span></div>
+    <div class="row"><span class="year">2014</span><span>Asia Contemporary Art Show — Conrad, 홍콩</span></div>
+    <div class="row"><span class="year">2013</span><span>Asia Contemporary Art Show — JW Marriott, 홍콩</span></div>
+  </div>
+</section>
+
+<section id="cv">
+  <div class="title">CV</div>
+  <div class="list">
+    <div class="row"><span class="year">NAME</span><span>김남용 (金南鏞) / KIM NAMYONG</span></div>
+    <div class="row"><span class="year">EDUCATION</span><span>서울대학교 미술대학 서양화과 졸업</span></div>
+    <div class="row"><span></span><span>서울대학교 대학원 서양화과 서양화전공 졸업</span></div>
+    <div class="row"><span class="year">SOLO</span><span>2023 Anver Gallery, Seoul</span></div>
+    <div class="row"><span></span><span>2020 Gallery Choi, Seoul</span></div>
+    <div class="row"><span></span><span>2018 Tong-in Auction Gallery, Seoul</span></div>
+    <div class="row"><span></span><span>2016 Tong-in Auction Gallery, Seoul</span></div>
+    <div class="row"><span></span><span>2015 Bon Gallery, Seoul — THE DIFFERENCE</span></div>
+    <div class="row"><span></span><span>2004 Gallery Shilla–Cube C, Daegu — 정서적 재현</span></div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="title">CONTACT</div>
+  <div class="contact">
+    KIM NAMYONG<br>
+    Seoul, Korea<br><br>
+    Instagram:
+    <a href="https://www.instagram.com/art_kny/" target="_blank" rel="noopener">@art_kny</a>
+  </div>
+</section>
+
+<footer>© KIM NAMYONG</footer>
+
+<div class="lb" id="lightbox" aria-hidden="true">
+  <button class="lbClose" id="lbClose" type="button" aria-label="Close">×</button>
+  <img id="lbImage" alt="">
+  <div class="lbNum" id="lbNum"></div>
+</div>
+
+<script>
+const knownWorks = [
+  ["DIFFERENCE_2629.jpg","DIFFERENCE 2629","82 × 50 cm · Oil painting on wood panel · 2026"],
+  ["DIFFERENCE_2664.jpg","DIFFERENCE 2664","48 × 80 cm · Oil painting on wood panel · 2026"],
+  ["DIFFERENCE_2665.jpg","DIFFERENCE 2665","48 × 80 cm · Oil painting on wood panel · 2026"],
+  ["DIFFERENCE_2650.jpg","DIFFERENCE 2650","43 × 80 cm · Oil painting on wood panel · 2026"],
+  ["DIFFERENCE_2653.jpg","DIFFERENCE 2653","34 × 76 cm · Oil painting on wood panel · 2026"],
+  ["DIFFERENCE_2618.jpg","DIFFERENCE 2618","60 × 39 cm · Oil painting on wood panel · 2026"],
+  ["DIFFERENCE_1615.jpg","DIFFERENCE 1615","120 × 113 cm · Oil painting on wood panel · 2016"],
+  ["DIFFERENCE_1601.jpg","DIFFERENCE 1601","Oil painting on wood panel · 2016"],
+  ["DIFFERENCE_2303.jpg","DIFFERENCE 2303","Oil painting on wood panel · 2023"],
+  ["DIFFERENCE_2304.jpg","DIFFERENCE 2304","Oil painting on wood panel · 2023"],
+  ["DIFFERENCE_2324.jpg","DIFFERENCE 2324","Oil painting on wood panel · 2023"],
+  ["DIFFERENCE_2501.jpg","DIFFERENCE 2501","Oil painting on wood panel · 2025"],
+  ["DIFFERENCE_2659.jpg","DIFFERENCE 2659","43 × 80 cm · Oil painting on wood panel · 2026"],
+  ["DIFFERENCE_2660.jpg","DIFFERENCE 2660","47 × 86 cm · Oil painting on wood panel · 2026"],
+  ["DIFFERENCE_2667.jpg","DIFFERENCE 2667","48 × 80 cm · Oil painting on wood panel · 2026"],
+  ["DIFFERENCE_1940.jpg","DIFFERENCE 1940","120 × 83 cm · Oil painting on wood panel · 2019"],
+  ["DIFFERENCE_2620.jpg","DIFFERENCE 2620","60 × 39 cm · Oil painting on wood panel · 2026"],
+  ["DIFFERENCE_2623.jpg","DIFFERENCE 2623","83 × 83 cm · Oil painting on wood panel · 2026"]
+];
+
+const grid = document.getElementById("worksGrid");
+const lightbox = document.getElementById("lightbox");
+const lbImage = document.getElementById("lbImage");
+const lbClose = document.getElementById("lbClose");
+const lbNum = document.getElementById("lbNum");
+
+function fileUrl(name){
+  return "works/" + encodeURIComponent(name);
+}
+
+function parseFilename(name){
+  const base = name.replace(/\.[^.]+$/,"");
+  const m = base.match(/DIFFERENCE\s*_?\s*(\d{3,4})/i);
+  if(!m) return null;
+
+  const size = base.match(/(\d+)\s*[×xX]\s*(\d+)\s*(?:㎝|cm)?/);
+  const year = base.match(/(?:^|[^0-9])(20\d{2})(?:[^0-9]|$)/);
+
+  let info = "";
+  if(size) info += size[1] + " × " + size[2] + " cm · ";
+  info += "Oil painting on wood panel";
+  if(year) info += " · " + year[1];
+
+  return [name,"DIFFERENCE " + m[1],info];
+}
+
+function renderWorks(works){
+  const grid=document.getElementById('worksGrid');
+  grid.innerHTML='';
+  const groups={};
+  works.forEach(w=>{
+    const year=w.year || 'Other';
+    if(!groups[year]) groups[year]=[];
+    groups[year].push(w);
+  });
+
+  Object.keys(groups).sort((a,b)=>{
+    if(a==='Other') return 1;
+    if(b==='Other') return -1;
+    return Number(b)-Number(a);
+  }).forEach(year=>{
+    const section=document.createElement('section');
+    section.className='year-section';
+
+    const heading=document.createElement('h3');
+    heading.className='year-title';
+    heading.textContent=year;
+    section.appendChild(heading);
+
+    const row=document.createElement('div');
+    row.className='year-grid';
+
+    groups[year].forEach(w=>{
+      const el=document.createElement('article');
+      el.className='work';
+      el.innerHTML=`
+        <button class="pic" type="button" aria-label="${escapeHtml(w.title)} 확대">
+          <img src="${w.src}" alt="${escapeHtml(w.title)}">
+        </button>
+        <div class="meta">
+          <div class="title">${escapeHtml(w.title)}</div>
+          ${w.size ? `<div>${escapeHtml(w.size)}</div>` : ''}
+          <div>${escapeHtml(w.medium || 'Oil painting on wood panel')}</div>
+          <div>${escapeHtml(w.year || '')}</div>
+        </div>`;
+      el.querySelector('.pic').addEventListener('click',()=>openLB(w.src,w.title));
+      row.appendChild(el);
+    });
+
+    section.appendChild(row);
+    grid.appendChild(section);
+  });
+}
+
+function closeLightbox(){
+  lightbox.classList.remove("on");
+  lightbox.setAttribute("aria-hidden","true");
+  lbImage.removeAttribute("src");
+  document.body.style.overflow = "";
+}
+
+lbClose.addEventListener("click",closeLightbox);
+
+lightbox.addEventListener("click",e=>{
+  if(e.target === lightbox) closeLightbox();
+});
+
+document.addEventListener("keydown",e=>{
+  if(e.key === "Escape") closeLightbox();
+});
+
+async function loadWorks(){
+  let items = [...knownWorks];
+
+  try{
+    const response = await fetch(
+      "https://api.github.com/repos/namyongkim-art/namyongkim.github.io/contents/works?ref=main",
+      {cache:"no-store"}
+    );
+
+    if(response.ok){
+      const files = await response.json();
+      const knownNames = new Set(
+        knownWorks.map(w=>w[0].toLowerCase())
+      );
+
+      files
+        .filter(f=>f.type === "file" && /\.(jpe?g|png|webp)$/i.test(f.name))
+        .forEach(f=>{
+          if(!knownNames.has(f.name.toLowerCase())){
+            const parsed = parseFilename(f.name);
+            if(parsed) items.push(parsed);
+          }
+        });
+    }
+  }catch(error){
+    /* 기존 18점은 계속 표시 */
+  }
+
+  renderWorks(items);
+}
+
+loadWorks();
+</script>
+
+</body>
+</html>
+
 body{
   margin:0;
   background:#fff;
