@@ -244,7 +244,7 @@ async function loadWorks(){
         if(!known.has(f.name.toLowerCase())){
           const m=f.name.match(/DIFFERENCE\s*_?\s*(\d{3,4})/i);
           const y=f.name.match(/(?:^|[^0-9])(20\d{2})(?:[^0-9]|$)/);
-          if(m)items.push({src:fileUrl(f.name),title:"DIFFERENCE "+m[1],info:"Oil painting on wood panel"+(y?" · "+y[1]:""),year:y?y[1]:"Other"});
+       if(m){const s=f.name.match(/(\d+)\s*[×x]\s*(\d+)\s*cm/i);items.push({src:fileUrl(f.name),title:"DIFFERENCE "+m[1],info:(s?s[1]+" × "+s[2]+" cm · ":"")+"Oil painting on wood panel"+(y?" · "+y[1]:""),year:y?y[1]:"Other"});}
         }
       });
     }
