@@ -1,1420 +1,247 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>KIM NAMYONG</title>
-
-  <meta name="description"
-        content="KIM NAMYONG — Korean contemporary artist exploring actuality, reality, materiality, pictorial illusion, space and perception.">
-
-  <meta name="author" content="KIM NAMYONG">
-
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      background: #fff;
-      color: #111;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 14px;
-      line-height: 1.55;
-      font-weight: 400;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      display: block;
-      max-width: 100%;
-    }
-
-    /* =========================
-       HEADER
-       ========================= */
-
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 64px;
-      background: rgba(255,255,255,0.96);
-      z-index: 1000;
-      border-bottom: 1px solid #eee;
-    }
-
-    .nav {
-      height: 64px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 28px;
-    }
-
-    .logo {
-      font-size: 14px;
-      letter-spacing: 0.04em;
-      white-space: nowrap;
-    }
-
-    nav {
-      display: flex;
-      gap: 26px;
-      align-items: center;
-    }
-
-    nav a {
-      font-size: 12px;
-      letter-spacing: 0.08em;
-    }
-
-    nav a:hover {
-      opacity: 0.45;
-    }
-
-    /* =========================
-       MAIN
-       ========================= */
-
-    main {
-      padding-top: 64px;
-    }
-
-    section {
-      scroll-margin-top: 80px;
-    }
-
-    .section-title {
-      padding: 90px 28px 35px;
-      font-size: 12px;
-      letter-spacing: 0.12em;
-    }
-
-    /* =========================
-       HERO
-       ========================= */
-
-    .hero {
-      padding: 32px 28px 90px;
-    }
-
-    .hero-image {
-      width: 100%;
-      height: 82vh;
-      object-fit: contain;
-      object-position: center;
-      cursor: zoom-in;
-    }
-
-    .hero-caption {
-      margin-top: 16px;
-      font-size: 12px;
-      letter-spacing: 0.04em;
-    }
-
-    /* =========================
-       WORKS
-       ========================= */
-
-    .works {
-      padding-bottom: 80px;
-    }
-
-    .work {
-      padding: 0 28px 110px;
-    }
-
-    .work-image-wrap {
-      width: 100%;
-      cursor: zoom-in;
-    }
-
-    .work-image {
-      width: 100%;
-      height: 82vh;
-      object-fit: contain;
-      object-position: center;
-      background: #fff;
-    }
-
-    .work-info {
-      margin-top: 17px;
-      max-width: 760px;
-    }
-
-    .work-title {
-      font-size: 13px;
-      letter-spacing: 0.04em;
-      margin-bottom: 5px;
-    }
-
-    .work-meta {
-      font-size: 11px;
-      color: #555;
-      margin-bottom: 17px;
-      letter-spacing: 0.02em;
-    }
-
-    .work-description {
-      max-width: 650px;
-      font-size: 12px;
-      line-height: 1.75;
-      color: #333;
-    }
-
-    /* =========================
-       TEXT SECTIONS
-       ========================= */
-
-    .text-section {
-      padding: 0 28px 110px;
-    }
-
-    .text-container {
-      max-width: 760px;
-    }
-
-    .text-container p {
-      margin: 0 0 18px;
-      font-size: 13px;
-      line-height: 1.85;
-    }
-
-    /* =========================
-       EXHIBITIONS / CV
-       ========================= */
-
-    .cv-block {
-      margin-bottom: 55px;
-      max-width: 900px;
-    }
-
-    .cv-heading {
-      font-size: 11px;
-      letter-spacing: 0.12em;
-      margin-bottom: 22px;
-    }
-
-    .cv-item {
-      margin-bottom: 13px;
-      font-size: 12px;
-      line-height: 1.65;
-    }
-
-    .cv-year {
-      display: inline-block;
-      width: 48px;
-      vertical-align: top;
-    }
-
-    .cv-detail {
-      display: inline-block;
-      max-width: calc(100% - 55px);
-    }
-
-    /* =========================
-       CONTACT
-       ========================= */
-
-    .contact {
-      padding-bottom: 100px;
-    }
-
-    .contact p {
-      margin: 0 0 8px;
-      font-size: 13px;
-    }
-
-    /* =========================
-       FOOTER
-       ========================= */
-
-    footer {
-      border-top: 1px solid #eee;
-      padding: 22px 28px 30px;
-      font-size: 10px;
-      color: #777;
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    /* =========================
-       LIGHTBOX
-       ========================= */
-
-    .lightbox {
-      position: fixed;
-      inset: 0;
-      background: rgba(255,255,255,0.98);
-      z-index: 2000;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 30px;
-      cursor: zoom-out;
-    }
-
-    .lightbox.active {
-      display: flex;
-    }
-
-    .lightbox img {
-      max-width: 96vw;
-      max-height: 92vh;
-      object-fit: contain;
-    }
-
-    .close {
-      position: fixed;
-      top: 20px;
-      right: 25px;
-      font-size: 28px;
-      font-weight: 300;
-      cursor: pointer;
-      line-height: 1;
-    }
-
-    /* =========================
-       MOBILE
-       ========================= */
-
-    @media (max-width: 700px) {
-
-      header {
-        height: auto;
-      }
-
-      .nav {
-        min-height: 58px;
-        height: auto;
-        padding: 16px 18px;
-        align-items: flex-start;
-        gap: 15px;
-      }
-
-      .logo {
-        font-size: 13px;
-      }
-
-      nav {
-        gap: 12px;
-        flex-wrap: wrap;
-        justify-content: flex-end;
-      }
-
-      nav a {
-        font-size: 9px;
-        letter-spacing: 0.06em;
-      }
-
-      main {
-        padding-top: 58px;
-      }
-
-      .section-title {
-        padding: 65px 18px 25px;
-      }
-
-      .hero {
-        padding: 20px 18px 65px;
-      }
-
-      .hero-image {
-        height: 62vh;
-      }
-
-      .work {
-        padding: 0 18px 75px;
-      }
-
-      .work-image {
-        height: 62vh;
-      }
-
-      .text-section {
-        padding: 0 18px 70px;
-      }
-
-      .text-container p {
-        font-size: 12px;
-        line-height: 1.8;
-      }
-
-      .cv-item {
-        font-size: 11px;
-      }
-
-      .cv-year {
-        width: 42px;
-      }
-
-      .cv-detail {
-        max-width: calc(100% - 48px);
-      }
-
-      footer {
-        padding: 18px;
-        font-size: 9px;
-        flex-direction: column;
-      }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KIM NAMYONG</title>
+<style>
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;background:#fff;color:#111;font-family:Arial,Helvetica,sans-serif;font-weight:300;font-size:16px}
+nav{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid #eee}
+.nav{max-width:1400px;margin:auto;padding:24px 40px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:18px;letter-spacing:.08em}.links{display:flex;gap:30px}
+.links a{font-size:14px;letter-spacing:.1em;color:#111;text-decoration:none}
+section{max-width:1400px;margin:auto;padding:110px 40px}.title{font-size:14px;letter-spacing:.15em;color:#666;margin-bottom:55px}
+.hero{min-height:82vh;padding:40px;display:flex;align-items:center;justify-content:center;position:relative}
+.hero img{max-width:100%;max-height:72vh;object-fit:contain}.hero p{position:absolute;bottom:25px;left:40px;font-size:12px;letter-spacing:.12em}
+.year-section{margin:0 0 100px}.year-title{font-size:30px;font-weight:400;letter-spacing:.02em;margin:0 0 35px;padding-bottom:14px;border-bottom:1px solid #ddd}
+.year-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:58px 28px}.work{min-width:0}
+.pic{width:100%;height:260px;border:0;padding:0;display:flex;align-items:center;justify-content:center;background:#fff;overflow:hidden;cursor:zoom-in}
+.pic img{width:100%;height:100%;object-fit:contain;display:block}.info{margin-top:13px;font-size:14px;line-height:1.6;letter-spacing:.03em}.info span{display:block}.medium{color:#777}
+.about{max-width:900px;font-size:18px;line-height:2.05}.list{max-width:1100px}.row{display:grid;grid-template-columns:85px 1fr;gap:22px;padding:13px 0;border-bottom:1px solid #eee;font-size:14px;line-height:1.8}.year{color:#777}
+.contact{font-size:14px;line-height:2.1}.contact a{color:#111}
+.lb{display:none;position:fixed;inset:0;z-index:100;background:rgba(255,255,255,.98);align-items:center;justify-content:center;padding:30px}.lb.on{display:flex}
+.lb img{max-width:94vw;max-height:88vh;object-fit:contain}.lbClose{position:absolute;right:28px;top:18px;border:0;background:none;font-size:34px;cursor:pointer}.lbNum{position:absolute;left:28px;bottom:18px;font-size:12px;color:#777}
+footer{padding:38px 40px;border-top:1px solid #eee;font-size:11px;color:#888}
+@media(max-width:1000px){.year-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.pic{height:230px}}
+@media(max-width:700px){.nav{padding:17px 20px}.logo{font-size:14px}.links{gap:12px;flex-wrap:wrap;justify-content:flex-end;max-width:260px}.links a{font-size:10px}section{padding:80px 20px}.title{font-size:11px;margin-bottom:45px}.hero{min-height:75vh;padding:30px 20px 70px}.hero p{left:20px;font-size:10px}.year-section{margin-bottom:70px}.year-title{font-size:24px;margin-bottom:24px}.year-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:38px 16px}.pic{height:180px}.info{font-size:11px}.about{font-size:15px;line-height:2}.row{grid-template-columns:58px 1fr;gap:12px;font-size:11px}.contact{font-size:12px}footer{padding:28px 20px}}
+</style>
 </head>
-
-
 <body>
-
-<header>
-  <div class="nav">
-
-    <a href="#top" class="logo">KIM NAMYONG</a>
-
-    <nav>
-      <a href="#works">WORKS</a>
-      <a href="#about">ABOUT</a>
-      <a href="#exhibitions">EXHIBITIONS</a>
-      <a href="#cv">CV</a>
-      <a href="#contact">CONTACT</a>
-    </nav>
-
-  </div>
-</header>
-
-
-<main id="top">
-
-  <!-- =========================
-       HERO
-       ========================= -->
-
-  <section class="hero">
-
-    <img
-      src="works/DIFFERENCE_2629.jpg"
-      alt="KIM NAMYONG, DIFFERENCE 2629"
-      class="hero-image zoomable"
-    >
-
-    <div class="hero-caption">
-      KIM NAMYONG — DIFFERENCE
-    </div>
-
-  </section>
-
-
-  <!-- =========================
-       WORKS
-       ========================= -->
-
-  <section id="works" class="works">
-
-    <div class="section-title">
-      WORKS
-    </div>
-
-
-    <!-- 2629 -->
-
-    <article class="work">
-
-      <div class="work-image-wrap">
-        <img
-          src="works/DIFFERENCE_2629.jpg"
-          alt="KIM NAMYONG, DIFFERENCE 2629"
-          class="work-image zoomable"
-        >
-      </div>
-
-      <div class="work-info">
-
-        <div class="work-title">
-          DIFFERENCE 2629
-        </div>
-
-        <div class="work-meta">
-          82 × 50 cm · Oil on wood panel · 2026
-        </div>
-
-        <div class="work-description">
-          A real wood surface becomes the physical ground on which
-          an imagined space is constructed.
-          Through perspective, light, and shadow, the painted image
-          creates an illusion of depth. What appears to be a solid
-          spatial structure, however, remains a painting on a flat
-          wooden surface.
-          <br><br>
-          The work brings together two different conditions within
-          a single plane: the physical presence of real wood and
-          the visual illusion created by painting. Between them
-          emerges a difference between what is actually present
-          and what is perceived.
-        </div>
-
-      </div>
-
-    </article>
-
-
-    <!-- 2664 -->
-
-    <article class="work">
-
-      <div class="work-image-wrap">
-        <img
-          src="works/DIFFERENCE_2664.jpg"
-          alt="KIM NAMYONG, DIFFERENCE 2664"
-          class="work-image zoomable"
-        >
-      </div>
-
-      <div class="work-info">
-
-        <div class="work-title">
-          DIFFERENCE 2664
-        </div>
-
-        <div class="work-meta">
-          48 × 80 cm · Oil on wood panel · 2026
-        </div>
-
-        <div class="work-description">
-          The painting constructs an apparent space on the surface
-          of real wood. Perspective, light, and shadow create a
-          sense of depth, while the physical surface remains flat.
-          <br><br>
-          The viewer encounters two realities at once: the actual
-          material presence of the wooden panel and the imagined
-          space produced by the painted image.
-          Rather than simply representing space, the work examines
-          how depth is perceived and how a flat image can be
-          experienced as a three-dimensional reality.
-        </div>
-
-      </div>
-
-    </article>
-
-
-    <!-- 2665 -->
-
-    <article class="work">
-
-      <div class="work-image-wrap">
-        <img
-          src="works/DIFFERENCE_2665.jpg"
-          alt="KIM NAMYONG, DIFFERENCE 2665"
-          class="work-image zoomable"
-        >
-      </div>
-
-      <div class="work-info">
-
-        <div class="work-title">
-          DIFFERENCE 2665
-        </div>
-
-        <div class="work-meta">
-          48 × 80 cm · Oil on wood panel · 2026
-        </div>
-
-        <div class="work-description">
-          In this work, the flat surface is not merely a support
-          for an image. Through painting, it becomes a site where
-          different levels of depth are visually constructed.
-          <br><br>
-          Light, shadow, and perspective suggest a space that
-          appears tangible, yet remains entirely within the plane
-          of the painting. The physical wood and the painted
-          illusion therefore occupy the same surface while
-          functioning in different ways.
-        </div>
-
-      </div>
-
-    </article>
-
-
-    <!-- 2650 -->
-
-    <article class="work">
-
-      <div class="work-image-wrap">
-        <img
-          src="works/DIFFERENCE_2650.jpg"
-          alt="KIM NAMYONG, DIFFERENCE 2650"
-          class="work-image zoomable"
-        >
-      </div>
-
-      <div class="work-info">
-
-        <div class="work-title">
-          DIFFERENCE 2650
-        </div>
-
-        <div class="work-meta">
-          43 × 80 cm · Oil on wood panel · 2026
-        </div>
-
-        <div class="work-description">
-          The actual surface of wood and the painted construction
-          of space coexist within a single plane.
-          <br><br>
-          Through perspective, light, and shadow, the painting
-          produces an illusion of depth that appears spatially
-          convincing. Yet the viewer remains aware of the physical
-          reality of the wooden surface beneath the image.
-          <br><br>
-          This simultaneous experience of material and illusion
-          creates a gap between what is seen and what exists.
-        </div>
-
-      </div>
-
-    </article>
-
-
-    <!-- 2653 -->
-
-    <article class="work">
-
-      <div class="work-image-wrap">
-        <img
-          src="works/DIFFERENCE_2653.jpg"
-          alt="KIM NAMYONG, DIFFERENCE 2653"
-          class="work-image zoomable"
-        >
-      </div>
-
-      <div class="work-info">
-
-        <div class="work-title">
-          DIFFERENCE 2653
-        </div>
-
-        <div class="work-meta">
-          34 × 76 cm · Oil on wood panel · 2026
-        </div>
-
-        <div class="work-description">
-          A flat wooden surface becomes a space of visual
-          transformation.
-          Through carefully constructed perspective, light, and
-          shadow, the painting suggests a depth that does not
-          physically exist.
-          <br><br>
-          The viewer is drawn into the illusion of space while
-          simultaneously confronted with the physical reality
-          of the surface. This tension between material presence
-          and visual perception is a recurring element in the
-          DIFFERENCE series.
-        </div>
-
-      </div>
-
-    </article>
-
-
-    <!-- 2618 -->
-
-    <article class="work">
-
-      <div class="work-image-wrap">
-        <img
-          src="works/DIFFERENCE_2618.jpg"
-          alt="KIM NAMYONG, DIFFERENCE 2618"
-          class="work-image zoomable"
-        >
-      </div>
-
-      <div class="work-info">
-
-        <div class="work-title">
-          DIFFERENCE 2618
-        </div>
-
-        <div class="work-meta">
-          60 × 39 cm · Oil on wood panel · 2026
-        </div>
-
-        <div class="work-description">
-          The work begins with a simple physical fact:
-          the painting is made directly on real wood.
-          <br><br>
-          On this material surface, an imagined spatial structure
-          is constructed through painting. Perspective and the
-          contrast of light and shadow generate a sense of depth,
-          although the surface itself remains flat.
-          <br><br>
-          The viewer therefore encounters an ambiguity between
-          material and image, between the space that appears
-          and the surface that actually exists.
-        </div>
-
-      </div>
-
-    </article>
-
-
-    <!-- 1615 -->
-
-    <article class="work">
-
-      <div class="work-image-wrap">
-        <img
-          src="works/DIFFERENCE_1615.jpg"
-          alt="KIM NAMYONG, DIFFERENCE 1615"
-          class="work-image zoomable"
-        >
-      </div>
-
-      <div class="work-info">
-
-        <div class="work-title">
-          DIFFERENCE 1615
-        </div>
-
-        <div class="work-meta">
-          120 × 113 cm · Oil on wood panel · 2016
-        </div>
-
-        <div class="work-description">
-          This earlier work forms part of the development that led
-          to KIM NAMYONG’s continuing investigation of actuality,
-          reality, and visual perception.
-          <br><br>
-          Working directly on a wooden surface, the artist uses
-          painting to construct an apparent space through
-          perspective, light, and shadow. The physical character
-          of the wood and the illusion created by the painted
-          image coexist within the same plane.
-          <br><br>
-          This relationship between material reality and visual
-          illusion provides an important foundation for the later
-          DIFFERENCE series.
-        </div>
-
-      </div>
-
-    </article>
-
-  </section>
-
-
-  <!-- =========================
-       ABOUT
-       ========================= -->
-
-  <section id="about">
-
-    <div class="section-title">
-      ABOUT
-    </div>
-
-    <div class="text-section">
-
-      <div class="text-container">
-
-        <p>
-          KIM NAMYONG explores the difference between what is seen
-          and what actually exists.
-        </p>
-
-        <p>
-          Working directly on real wood panels, he uses oil
-          painting, perspective, light, and shadow to construct
-          spaces that appear to possess physical depth.
-          The actual material of the wood and the painted illusion
-          coexist on a single plane, creating a tension between
-          material presence and visual representation.
-        </p>
-
-        <p>
-          His paintings examine how perception transforms a flat
-          surface into an apparent space, and how an image can be
-          experienced as something real even when we know it is
-          an illusion.
-        </p>
-
-        <p>
-          From his earlier exploration of
-          <em>Actuality and Reality</em>
-          (實際 / 實在) to the ongoing
-          <em>DIFFERENCE</em> series, his practice focuses on the
-          gap between seeing, perceiving, and recognizing.
-        </p>
-
-        <p>
-          Rather than resolving this gap, KIM NAMYONG uses it as
-          a space of inquiry—where the boundary between the actual
-          and the imagined, the flat and the spatial, remains open.
-        </p>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =========================
-       EXHIBITIONS
-       ========================= -->
-
-  <section id="exhibitions">
-
-    <div class="section-title">
-      EXHIBITIONS
-    </div>
-
-    <div class="text-section">
-
-      <div class="text-container">
-
-        <div class="cv-block">
-
-          <div class="cv-heading">
-            SOLO EXHIBITIONS
-          </div>
-
-          <div class="cv-item">
-            <span class="cv-year">2026</span>
-            <span class="cv-detail">
-              <em>DIFFERENCE — Constructed Illusion</em> —
-              Bon Gallery, Seoul, Korea
-            </span>
-          </div>
-
-          <div class="cv-item">
-            <span class="cv-year"></span>
-            <span class="cv-detail">
-              <em>DIFFERENCE — The Structure of Perception</em> —
-              WAS Gallery, Seoul, Korea
-            </span>
-          </div>
-
-          <div class="cv-item">
-            <span class="cv-year"></span>
-            <span class="cv-detail">
-              <em>DIFFERENCE — The Structure of the Visible</em> —
-              Tong-in Auction Gallery, Seoul, Korea
-            </span>
-          </div>
-
-          <div class="cv-item">
-            <span class="cv-year">2023</span>
-            <span class="cv-detail">
-              <em>Actuality and Reality (實際와 實在)</em> —
-              Anver Gallery, Seoul, Korea
-            </span>
-          </div>
-
-          <div class="cv-item">
-            <span class="cv-year">2020</span>
-            <span class="cv-detail">
-              <em>Actuality and Reality (實際와 實在)</em> —
-              Gallery Choi, Seoul, Korea
-            </span>
-          </div>
-
-          <div class="cv-item">
-            <span class="cv-year">2018</span>
-            <span class="cv-detail">
-              <em>Actuality and Reality (實際와 實在)</em> —
-              Tong-in Auction Gallery, Seoul, Korea
-            </span>
-          </div>
-
-          <div class="cv-item">
-            <span class="cv-year">2016</span>
-            <span class="cv-detail">
-              <em>Actuality and Reality (實際와 實在)</em> —
-              Tong-in Auction Gallery, Seoul, Korea
-            </span>
-          </div>
-
-          <div class="cv-item">
-            <span class="cv-year">2015</span>
-            <span class="cv-detail">
-              <em>THE DIFFERENCE</em> —
-              Bon Gallery, Seoul, Korea
-            </span>
-          </div>
-
-          <div class="cv-item">
-            <span class="cv-year">2004</span>
-            <span class="cv-detail">
-              <em>Emotional Representation</em> —
-              Gallery Shinla-Cube C, Daegu, Korea
-            </span>
-          </div>
-
-        </div>
-
-
-        <div class="cv-block">
-
-          <div class="cv-heading">
-            SELECTED GROUP EXHIBITIONS
-          </div>
-
-          <div class="cv-item">
-            <span class="cv-year">2026</span>
-            <span class="cv-detail">
-              <em>The World Behind the Surface</em> —
-              Korea Cultural Foundation, GALLERY KAF, Seoul, Korea
-            </span>
-          </div>
-
-          <div class="cv-item">
-            <span class="cv-year"></span>
-            <span class="cv-detail">
-              <em>Gallery Art Fair in Suwon</em> —
-              Suwon Convention Center, Suwon, Korea
-            </span>
-          </div>
-
-          <div class="cv-item">
-            <span class="cv-year"></span>
-            <span class="cv-detail">
-              <em>Reconstructing the Gaze</em> —
-              Anguk Cultural Foundation, AG Gallery, Gyeonggi-do, Korea
-            </span>
-          </div>
-
-          <div class="cv-item">
-            <span class="cv-year"></span>
-            <span class="cv-detail">
-              <em>AFIH 2026</em> —
-              Hotel Eclat Beijing, Beijing, China
-            </span>
-          </div>
-
-          <div class="cv-item">
-            <span class="cv-year">2025</span>
-            <span class="cv-detail">
-              <em>HIAF 2025</em> —
-              MGM Shanghai West Bund, Shanghai, China
-            </span>
-          </div>
-
-          <div class="cv-item">
-            <span class="cv-year"></span>
-            <span class="cv-detail">
-              <em>Seoul Art Show 2025</em> —
-              COEX, Seoul, Korea
-            </span>
-          </div>
-
-          <div class="cv-item">
-            <span class="cv-year">2024</span>
-            <span class="cv-detail">
-              <em>Unknown Vibe Art Fair</em> —
-              Boutique Monaco Museum, Seoul, Korea
-            </span>
-          </div>
-
-          <div class="cv-item">
-            <span class="cv-year">2023</span>
-            <span class="cv-detail">
-              <em>Art Gyeongnam 2023</em> —
-              Grand Mercure Ambassador Changwon, Gyeongsangnam-do, Korea
-            </span>
-          </div>
-
-          <div class="cv-item">
-            <span class="cv-year">2021</span>
-            <span class="cv-detail">
-              <em>A Place to Pause</em> —
-              Incheon International Airport, Incheon, Korea
-            </span>
-          </div>
-
-          <div class="cv-item">
-            <span class="cv-year">2020</span>
-            <span class="cv-detail">
-              <em>Three-Dimensional</em> —
-              AG Gallery, Seoul, Korea
-            </span>
-          </div>
-
-          <div class="cv-item">
-            <span class="cv-year">2019</span>
-            <span class="cv-detail">
-              <em>Art Gyeonggi Pop-up Gallery</em> —
-              National Cancer Center, Goyang, Korea
-            </span>
-          </div>
-
-          <div class="cv-item">
-            <span class="cv-year"></span>
-            <span class="cv-detail">
-              <em>Gyeonggi, Colored by Art</em> —
-              Gyeonggi Provincial Government Complex, Suwon, Korea
-            </span>
-          </div>
-
-          <div class="cv-item">
-            <span class="cv-year"></span>
-            <span class="cv-detail">
-              <em>Art Gyeonggi 2019</em> —
-              Gonggan 1986, Suwon, Korea
-            </span>
-          </div>
-
-          <div class="cv-item">
-            <span class="cv-year"></span>
-            <span class="cv-detail">
-              <em>Art Gyeonggi 2019</em> —
-              S Factory Building A, Seoul, Korea
-            </span>
-          </div>
-
-          <div class="cv-item">
-            <span class="cv-year"></span>
-            <span class="cv-detail">
-              <em>KAFA Art Fair</em> —
-              KINTEX, Goyang, Korea
-            </span>
-          </div>
-
-          <div class="cv-item">
-            <span class="cv-year">2018</span>
-            <span class="cv-detail">
-              <em>Small Works Exhibition</em> —
-              Tong-in Gallery, Seoul, Korea
-            </span>
-          </div>
-
-          <div class="cv-item">
-            <span class="cv-year"></span>
-            <span class="cv-detail">
-              <em>From Object to Object</em> —
-              AG Gallery, Seoul, Korea
-            </span>
-          </div>
-
-          <div class="cv-item">
-            <span class="cv-year">2017</span>
-            <span class="cv-detail">
-              <em>The Forest Becomes a Path</em> —
-              SNU Scholarship Building, Veritas Hall, Seoul, Korea
-            </span>
-          </div>
-
-          <div class="cv-item">
-            <span class="cv-year"></span>
-            <span class="cv-detail">
-              <em>GALLERY LOA Opening Exhibition</em> —
-              GALLERY LOA, Seoul, Korea
-            </span>
-          </div>
-
-          <div class="cv-item">
-            <span class="cv-year"></span>
-            <span class="cv-detail">
-              <em>Master of Illusion</em> —
-              H Gallery, Seoul, Korea
-            </span>
-          </div>
-
-          <div class="cv-item">
-            <span class="cv-year"></span>
-            <span class="cv-detail">
-              <em>Korean Fine Arts Association Executive Invitation Exhibition</em> —
-              Korean Art Museum, Seoul, Korea
-            </span>
-          </div>
-
-          <div class="cv-item">
-            <span class="cv-year"></span>
-            <span class="cv-detail">
-              <em>Spoon Art Show</em> —
-              KINTEX, Goyang, Korea
-            </span>
-          </div>
-
-          <div class="cv-item">
-            <span class="cv-year"></span>
-            <span class="cv-detail">
-              <em>YIAF Yeosu International Art Festival</em> —
-              Yeosu Expo, Yeosu, Korea
-            </span>
-          </div>
-
-          <div class="cv-item">
-            <span class="cv-year"></span>
-            <span class="cv-detail">
-              <em>Chennai Chamber Biennale</em> —
-              Lalit Kala Akademi, India
-            </span>
-          </div>
-
-          <div class="cv-item">
-            <span class="cv-year">2016</span>
-            <span class="cv-detail">
-              <em>Busan International Art Fair 2016</em> —
-              BEXCO, Busan, Korea
-            </span>
-          </div>
-
-          <div class="cv-item">
-            <span class="cv-year"></span>
-            <span class="cv-detail">
-              <em>KIAF 2016</em> —
-              COEX, Seoul, Korea
-            </span>
-          </div>
-
-          <div class="cv-item">
-            <span class="cv-year"></span>
-            <span class="cv-detail">
-              <em>Contomporaries</em> —
-              GALLERY ARTPARK, Seoul, Korea
-            </span>
-          </div>
-
-          <div class="cv-item">
-            <span class="cv-year"></span>
-            <span class="cv-detail">
-              <em>Hope and Companionship</em> —
-              Seojung Art Gallery, Seoul, Korea
-            </span>
-          </div>
-
-          <div class="cv-item">
-            <span class="cv-year"></span>
-            <span class="cv-detail">
-              <em>Daegu Art Fair 2016</em> —
-              EXCO, Daegu, Korea
-            </span>
-          </div>
-
-          <div class="cv-item">
-            <span class="cv-year">2015</span>
-            <span class="cv-detail">
-              <em>KIAF 2015</em> —
-              COEX, Seoul, Korea
-            </span>
-          </div>
-
-          <div class="cv-item">
-            <span class="cv-year"></span>
-            <span class="cv-detail">
-              <em>Scope Basel Art Fair</em> —
-              Gallery MAC, Switzerland
-            </span>
-          </div>
-
-          <div class="cv-item">
-            <span class="cv-year"></span>
-            <span class="cv-detail">
-              <em>Asia Hotel Art Fair</em> —
-              Conrad, Seoul, Korea
-            </span>
-          </div>
-
-          <div class="cv-item">
-            <span class="cv-year"></span>
-            <span class="cv-detail">
-              <em>Daegu Art Fair 2015</em> —
-              EXCO, Daegu, Korea
-            </span>
-          </div>
-
-          <div class="cv-item">
-            <span class="cv-year">2014</span>
-            <span class="cv-detail">
-              <em>Asia Contemporary Art Show</em> —
-              Conrad, Hong Kong
-            </span>
-          </div>
-
-          <div class="cv-item">
-            <span class="cv-year">2013</span>
-            <span class="cv-detail">
-              <em>Asia Contemporary Art Show</em> —
-              JW Marriott, Hong Kong
-            </span>
-          </div>
-
-          <div class="cv-item">
-            <span class="cv-year"></span>
-            <span class="cv-detail">
-              <em>Chung-Ang University Development Fund Exhibition</em> —
-              301 Gallery, Chung-Ang University, Seoul, Korea
-            </span>
-          </div>
-
-          <div class="cv-item">
-            <span class="cv-year">2012</span>
-            <span class="cv-detail">
-              <em>Chung-Ang University College of Arts Faculty Exhibition</em> —
-              Gongpyeong Gallery, Seoul, Korea
-            </span>
-          </div>
-
-          <div class="cv-item">
-            <span class="cv-year">2011</span>
-            <span class="cv-detail">
-              <em>Invitation Exhibition of Korean Artists in L.A.</em> —
-              GALLERY SUN, Los Angeles, USA
-            </span>
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =========================
-       CV
-       ========================= -->
-
-  <section id="cv">
-
-    <div class="section-title">
-      CV
-    </div>
-
-    <div class="text-section">
-
-      <div class="text-container">
-
-        <div class="cv-block">
-
-          <div class="cv-heading">
-            EDUCATION
-          </div>
-
-          <div class="cv-item">
-            B.A., Western Painting —
-            Seoul National University College of Fine Arts, Seoul, Korea
-          </div>
-
-          <div class="cv-item">
-            M.A., Western Painting —
-            Seoul National University Graduate School, Seoul, Korea
-          </div>
-
-        </div>
-
-
-        <div class="cv-block">
-
-          <div class="cv-heading">
-            COLLECTIONS
-          </div>
-
-          <div class="cv-item">
-            National Museum of Modern and Contemporary Art,
-            Art Bank, Korea
-          </div>
-
-          <div class="cv-item">
-            Gyeonggi Museum of Art, Korea
-          </div>
-
-          <div class="cv-item">
-            Yeosu Municipal Museum of Art, Korea
-          </div>
-
-          <div class="cv-item">
-            Anguk Cultural Foundation, Korea
-          </div>
-
-          <div class="cv-item">
-            Hyundai Gallery, Korea
-          </div>
-
-          <div class="cv-item">
-            In Gallery, Korea
-          </div>
-
-          <div class="cv-item">
-            Bon Gallery, Korea
-          </div>
-
-          <div class="cv-item">
-            BOSS Gallery, Taiwan
-          </div>
-
-          <div class="cv-item">
-            Tong-in Auction, Korea
-          </div>
-
-          <div class="cv-item">
-            PAXCONSULTING, Korea
-          </div>
-
-          <div class="cv-item">
-            TOWHANDSD, Korea
-          </div>
-
-          <div class="cv-item">
-            Private Collections
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =========================
-       CONTACT
-       ========================= -->
-
-  <section id="contact">
-
-    <div class="section-title">
-      CONTACT
-    </div>
-
-    <div class="text-section contact">
-
-      <div class="text-container">
-
-        <p><strong>KIM NAMYONG</strong></p>
-
-        <p>Seoul, Korea</p>
-
-        <p>
-          Instagram:
-          <a
-            href="https://www.instagram.com/art_kny/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            @art_kny
-          </a>
-        </p>
-
-        <p>
-          Email:
-          <a href="mailto:kny502@gmail.net">
-            kny502@gmail.net
-          </a>
-        </p>
-
-      </div>
-
-    </div>
-
-  </section>
-
-</main>
-
-
-<footer>
-
-  <div>
-    © KIM NAMYONG
-  </div>
-
-  <div>
-    namyongkim.kr
-  </div>
-
-</footer>
-
-
-<!-- =========================
-     LIGHTBOX
-     ========================= -->
-
-<div class="lightbox" id="lightbox">
-
-  <div class="close" id="close">
-    ×
-  </div>
-
-  <img id="lightbox-image" src="" alt="">
-
-</div>
-
+<nav><div class="nav"><div class="logo">KIM NAMYONG</div><div class="links">
+<a href="#works">WORKS</a><a href="#about">ABOUT</a><a href="#exhibitions">EXHIBITIONS</a><a href="#cv">CV</a><a href="#contact">CONTACT</a>
+</div></div></nav>
+<div class="hero"><img src="works/DIFFERENCE_2629.jpg" alt="DIFFERENCE 2629"><p>KIM NAMYONG — DIFFERENCE</p></div>
+
+<section id="works"><div class="title">WORKS</div><div id="worksGrid"></div></section>
+
+<section id="about"><div class="title">ABOUT</div><div class="about">
+<p>KIM NAMYONG explores how we perceive and understand space through the relationship between actual materiality and pictorial representation.</p>
+<p>Working directly on real wood, he uses light and shadow, perspective, and pictorial illusion to construct spaces and depths that do not physically exist. As wood, a tangible material, and painting, an image, overlap within a single plane, the boundary between reality and representation becomes unstable.</p>
+<p>Beginning with <em>Actuality and Reality (實際와 實在)</em>, his practice has expanded from the representation of objects toward the fragmentation and reconstruction of space. His recent work focuses on constructing multiple depths within a single pictorial plane.</p>
+<p>By constructing unreal space upon physically existing material, Kim investigates the structure and instability of perception.</p>
+</div></section>
+
+<section id="exhibitions"><div class="title">EXHIBITIONS</div><div class="list">
+<div class="row"><span class="year">2026</span><span>DIFFERENCE — Constructed Illusion — Bon Gallery, Seoul</span></div>
+<div class="row"><span class="year"></span><span>DIFFERENCE — The Structure of Perception — WAS Gallery, Seoul</span></div>
+<div class="row"><span class="year"></span><span>DIFFERENCE — The Structure of the Visible — Tong-in Auction Gallery, Seoul</span></div>
+<div class="row"><span class="year"></span><span>The World Behind the Surface — Korea Cultural Foundation, GALLERY KAF, Seoul</span></div>
+<div class="row"><span class="year"></span><span>Gallery Art Fair in Suwon — Suwon Convention Center, Suwon</span></div>
+<div class="row"><span class="year"></span><span>Reconstructing the Gaze — Anguk Cultural Foundation, AG Gallery, Gyeonggi-do</span></div>
+<div class="row"><span class="year"></span><span>AFIH 2026 — Hotel Eclat Beijing, Beijing, China</span></div>
+<div class="row"><span class="year">2025</span><span>HIAF 2025 — MGM Shanghai West Bund, Shanghai, China</span></div>
+<div class="row"><span class="year"></span><span>Seoul Art Show 2025 — COEX, Seoul</span></div>
+<div class="row"><span class="year">2024</span><span>Unknown Vibe Art Fair — Boutique Monaco Museum, Seoul</span></div>
+<div class="row"><span class="year">2023</span><span>Art Gyeongnam 2023 — Grand Mercure Ambassador Changwon, Gyeongsangnam-do</span></div>
+<div class="row"><span class="year">2021</span><span>A Place to Pause — Incheon International Airport, Incheon</span></div>
+<div class="row"><span class="year">2020</span><span>Three-Dimensional — AG Gallery, Seoul</span></div>
+<div class="row"><span class="year">2019</span><span>Art Gyeonggi Pop-up Gallery — National Cancer Center, Goyang</span></div>
+<div class="row"><span class="year"></span><span>Gyeonggi, Colored by Art — Gyeonggi Provincial Government Complex, Suwon</span></div>
+<div class="row"><span class="year"></span><span>Art Gyeonggi 2019 — Gonggan 1986, Suwon</span></div>
+<div class="row"><span class="year"></span><span>Art Gyeonggi 2019 — S Factory Building A, Seoul</span></div>
+<div class="row"><span class="year"></span><span>KAFA Art Fair — KINTEX, Goyang</span></div>
+<div class="row"><span class="year">2018</span><span>Small Works Exhibition — Tong-in Gallery, Seoul</span></div>
+<div class="row"><span class="year"></span><span>From Object to Object — AG Gallery, Seoul</span></div>
+<div class="row"><span class="year">2017</span><span>The Forest Becomes a Path — SNU Scholarship Building, Veritas Hall, Seoul</span></div>
+<div class="row"><span class="year"></span><span>GALLERY LOA Opening Exhibition — GALLERY LOA, Seoul</span></div>
+<div class="row"><span class="year"></span><span>Master of Illusion — H Gallery, Seoul</span></div>
+<div class="row"><span class="year"></span><span>Korean Fine Arts Association Executive Invitation Exhibition — Korean Art Museum, Seoul</span></div>
+<div class="row"><span class="year"></span><span>Spoon Art Show — KINTEX, Goyang</span></div>
+<div class="row"><span class="year"></span><span>YIAF Yeosu International Art Festival — Yeosu Expo</span></div>
+<div class="row"><span class="year"></span><span>Chennai Chamber Biennale — Lalit Kala Akademi, India</span></div>
+<div class="row"><span class="year">2016</span><span>Busan International Art Fair 2016 — BEXCO, Busan</span></div>
+<div class="row"><span class="year"></span><span>KIAF 2016 — COEX, Seoul</span></div>
+<div class="row"><span class="year"></span><span>Contomporaries — GALLERY ARTPARK, Seoul</span></div>
+<div class="row"><span class="year"></span><span>Hope and Companionship — Seojung Art Gallery, Seoul</span></div>
+<div class="row"><span class="year"></span><span>Daegu Art Fair 2016 — EXCO, Daegu</span></div>
+<div class="row"><span class="year">2015</span><span>KIAF 2015 — COEX, Seoul</span></div>
+<div class="row"><span class="year"></span><span>Scope Basel Art Fair — Gallery MAC, Switzerland</span></div>
+<div class="row"><span class="year"></span><span>Asia Hotel Art Fair — Conrad, Seoul</span></div>
+<div class="row"><span class="year"></span><span>Daegu Art Fair 2015 — EXCO, Daegu</span></div>
+<div class="row"><span class="year">2014</span><span>Asia Contemporary Art Show — Conrad, 홍콩</span></div>
+<div class="row"><span class="year">2013</span><span>Asia Contemporary Art Show — JW Marriott, 홍콩</span></div>
+<div class="row"><span class="year"></span><span>Chung-Ang University Development Fund Exhibition — 301 Gallery, Chung-Ang University</span></div>
+<div class="row"><span class="year">2012</span><span>Chung-Ang University College of Arts Faculty Exhibition — Gongpyeong Gallery</span></div>
+<div class="row"><span class="year">2011</span><span>Invitation Exhibition of Korean Artists in L.A. — GALLERY SUN, L.A.</span></div>
+<div class="row"><span class="year"></span><span>Numerous group exhibitions</span></div>
+</div></section>
+
+<section id="cv"><div class="title">CV</div><div class="list">
+<h3>EDUCATION</h3>
+<div class="row"><span class="year"></span><span>B.A., Western Painting, Seoul National University College of Fine Arts</span></div>
+<div class="row"><span class="year"></span><span>M.A., Western Painting, Seoul National University Graduate School</span></div>
+<h3>SOLO EXHIBITIONS</h3>
+<div class="row"><span class="year">2026</span><span>DIFFERENCE — Constructed Illusion — Bon Gallery, Seoul</span></div>
+<div class="row"><span class="year"></span><span>DIFFERENCE — The Structure of Perception — WAS Gallery, Seoul</span></div>
+<div class="row"><span class="year"></span><span>DIFFERENCE — The Structure of the Visible — Tong-in Auction Gallery, Seoul</span></div>
+<div class="row"><span class="year">2023</span><span>Actuality and Reality (實際와 實在) — Anver Gallery, Seoul</span></div>
+<div class="row"><span class="year">2020</span><span>Actuality and Reality (實際와 實在) — Gallery Choi, Seoul</span></div>
+<div class="row"><span class="year">2018</span><span>Actuality and Reality (實際와 實在) — Tong-in Auction Gallery, Seoul</span></div>
+<div class="row"><span class="year">2016</span><span>Actuality and Reality (實際와 實在) — Tong-in Auction Gallery, Seoul</span></div>
+<div class="row"><span class="year">2015</span><span>THE DIFFERENCE — Bon Gallery, Seoul</span></div>
+<div class="row"><span class="year">2004</span><span>Emotional Representation — Gallery Shinla-Cube C, Daegu</span></div>
+<h3>GROUP EXHIBITIONS</h3>
+<div class="row"><span class="year">2026</span><span>The World Behind the Surface — Korea Cultural Foundation, GALLERY KAF, Seoul</span></div>
+<div class="row"><span class="year"></span><span>Gallery Art Fair in Suwon — Suwon Convention Center, Suwon</span></div>
+<div class="row"><span class="year"></span><span>Reconstructing the Gaze — Anguk Cultural Foundation, AG Gallery, Gyeonggi-do</span></div>
+<div class="row"><span class="year"></span><span>AFIH 2026 — Hotel Eclat Beijing, Beijing, China</span></div>
+<div class="row"><span class="year">2025</span><span>HIAF 2025 — MGM Shanghai West Bund, Shanghai, China</span></div>
+<div class="row"><span class="year"></span><span>Seoul Art Show 2025 — COEX, Seoul</span></div>
+<div class="row"><span class="year">2024</span><span>Unknown Vibe Art Fair — Boutique Monaco Museum, Seoul</span></div>
+<div class="row"><span class="year">2023</span><span>Art Gyeongnam 2023 — Grand Mercure Ambassador Changwon, Gyeongsangnam-do</span></div>
+<div class="row"><span class="year">2021</span><span>A Place to Pause — Incheon International Airport, Incheon</span></div>
+<div class="row"><span class="year">2020</span><span>Three-Dimensional — AG Gallery, Seoul</span></div>
+<div class="row"><span class="year">2019</span><span>Art Gyeonggi Pop-up Gallery — National Cancer Center, Goyang</span></div>
+<div class="row"><span class="year"></span><span>Gyeonggi, Colored by Art — Gyeonggi Provincial Government Complex, Suwon</span></div>
+<div class="row"><span class="year"></span><span>Art Gyeonggi 2019 — Gonggan 1986, Suwon</span></div>
+<div class="row"><span class="year"></span><span>Art Gyeonggi 2019 — S Factory Building A, Seoul</span></div>
+<div class="row"><span class="year"></span><span>KAFA Art Fair — KINTEX, Goyang</span></div>
+<div class="row"><span class="year">2018</span><span>Small Works Exhibition — Tong-in Gallery, Seoul</span></div>
+<div class="row"><span class="year"></span><span>From Object to Object — AG Gallery, Seoul</span></div>
+<div class="row"><span class="year">2017</span><span>The Forest Becomes a Path — SNU Scholarship Building, Veritas Hall, Seoul</span></div>
+<div class="row"><span class="year"></span><span>GALLERY LOA Opening Exhibition — GALLERY LOA, Seoul</span></div>
+<div class="row"><span class="year"></span><span>Master of Illusion — H Gallery, Seoul</span></div>
+<div class="row"><span class="year"></span><span>Korean Fine Arts Association Executive Invitation Exhibition — Korean Art Museum, Seoul</span></div>
+<div class="row"><span class="year"></span><span>Spoon Art Show — KINTEX, Goyang</span></div>
+<div class="row"><span class="year"></span><span>YIAF Yeosu International Art Festival — Yeosu Expo</span></div>
+<div class="row"><span class="year"></span><span>Chennai Chamber Biennale — Lalit Kala Akademi, India</span></div>
+<div class="row"><span class="year">2016</span><span>Busan International Art Fair 2016 — BEXCO, Busan</span></div>
+<div class="row"><span class="year"></span><span>KIAF 2016 — COEX, Seoul</span></div>
+<div class="row"><span class="year"></span><span>Contomporaries — GALLERY ARTPARK, Seoul</span></div>
+<div class="row"><span class="year"></span><span>Hope and Companionship — Seojung Art Gallery, Seoul</span></div>
+<div class="row"><span class="year"></span><span>Daegu Art Fair 2016 — EXCO, Daegu</span></div>
+<div class="row"><span class="year">2015</span><span>KIAF 2015 — COEX, Seoul</span></div>
+<div class="row"><span class="year"></span><span>Scope Basel Art Fair — Gallery MAC, Switzerland</span></div>
+<div class="row"><span class="year"></span><span>Asia Hotel Art Fair — Conrad, Seoul</span></div>
+<div class="row"><span class="year"></span><span>Daegu Art Fair 2015 — EXCO, Daegu</span></div>
+<div class="row"><span class="year">2014</span><span>Asia Contemporary Art Show — Conrad, 홍콩</span></div>
+<div class="row"><span class="year">2013</span><span>Asia Contemporary Art Show — JW Marriott, 홍콩</span></div>
+<div class="row"><span class="year"></span><span>Chung-Ang University Development Fund Exhibition — 301 Gallery, Chung-Ang University</span></div>
+<div class="row"><span class="year">2012</span><span>Chung-Ang University College of Arts Faculty Exhibition — Gongpyeong Gallery</span></div>
+<div class="row"><span class="year">2011</span><span>Invitation Exhibition of Korean Artists in L.A. — GALLERY SUN, L.A.</span></div>
+<div class="row"><span class="year"></span><span>Numerous group exhibitions</span></div>
+</div></section>
+
+<section id="contact"><div class="title">CONTACT</div><div class="contact">KIM NAMYONG<br>Seoul, Korea<br><br>Instagram: <a href="https://www.instagram.com/art_kny/" target="_blank" rel="noopener">@art_kny</a></div></section>
+<footer>© KIM NAMYONG | kny502@gmail.net</footer>
+<div class="lb" id="lightbox" aria-hidden="true"><button class="lbClose" id="lbClose" type="button">×</button><img id="lbImage" alt=""><div class="lbNum" id="lbNum"></div></div>
 
 <script>
+const knownWorks=[
+["DIFFERENCE_2629.jpg","DIFFERENCE 2629","82 × 50 cm · Oil painting on wood panel · 2026"],
+["DIFFERENCE_2664.jpg","DIFFERENCE 2664","48 × 80 cm · Oil painting on wood panel · 2026"],
+["DIFFERENCE_2665.jpg","DIFFERENCE 2665","48 × 80 cm · Oil painting on wood panel · 2026"],
+["DIFFERENCE_2650.jpg","DIFFERENCE 2650","43 × 80 cm · Oil painting on wood panel · 2026"],
+["DIFFERENCE_2653.jpg","DIFFERENCE 2653","34 × 76 cm · Oil painting on wood panel · 2026"],
+["DIFFERENCE_2618.jpg","DIFFERENCE 2618","60 × 39 cm · Oil painting on wood panel · 2026"],
+["DIFFERENCE_1615.jpg","DIFFERENCE 1615","120 × 113 cm · Oil painting on wood panel · 2016"],
+["DIFFERENCE_1601.jpg","DIFFERENCE 1601","Oil painting on wood panel · 2016"],
+["DIFFERENCE_2303.jpg","DIFFERENCE 2303","Oil painting on wood panel · 2023"],
+["DIFFERENCE_2304.jpg","DIFFERENCE 2304","Oil painting on wood panel · 2023"],
+["DIFFERENCE_2324.jpg","DIFFERENCE 2324","Oil painting on wood panel · 2023"],
+["DIFFERENCE_2501.jpg","DIFFERENCE 2501","Oil painting on wood panel · 2025"],
+["DIFFERENCE_2659.jpg","DIFFERENCE 2659","43 × 80 cm · Oil painting on wood panel · 2026"],
+["DIFFERENCE_2660.jpg","DIFFERENCE 2660","47 × 86 cm · Oil painting on wood panel · 2026"],
+["DIFFERENCE_2667.jpg","DIFFERENCE 2667","48 × 80 cm · Oil painting on wood panel · 2026"],
+["DIFFERENCE_1940.jpg","DIFFERENCE 1940","120 × 83 cm · Oil painting on wood panel · 2019"],
+["DIFFERENCE_2620.jpg","DIFFERENCE 2620","60 × 39 cm · Oil painting on wood panel · 2026"],
+["DIFFERENCE_2623.jpg","DIFFERENCE 2623","83 × 83 cm · Oil painting on wood panel · 2026"],
 
-  const lightbox = document.getElementById("lightbox");
-  const lightboxImage = document.getElementById("lightbox-image");
-  const closeButton = document.getElementById("close");
+];
 
-  document.querySelectorAll(".zoomable").forEach(function(image) {
+const grid=document.getElementById("worksGrid"), lightbox=document.getElementById("lightbox"), lbImage=document.getElementById("lbImage");
 
-    image.addEventListener("click", function() {
+function fileUrl(name){return "works/"+encodeURIComponent(name)}
 
-      lightboxImage.src = this.src;
-      lightboxImage.alt = this.alt;
+function toWork(w){
+  const info=w[2]||"";
+  const m=info.match(/(20\d{2})/);
+  return {src:fileUrl(w[0]),title:w[1],info:info,year:m?m[1]:"Other"};
+}
 
-      lightbox.classList.add("active");
-
-      document.body.style.overflow = "hidden";
-
+function renderWorks(list){
+  grid.innerHTML="";
+  const groups={};
+  list.forEach(w=>{const y=w.year||"Other";(groups[y] ||= []).push(w)});
+  Object.keys(groups).sort((a,b)=>a==="Other"?1:b==="Other"?-1:Number(b)-Number(a)).forEach(year=>{
+    const s=document.createElement("div");s.className="year-section";
+    const h=document.createElement("h3");h.className="year-title";h.textContent=year;s.appendChild(h);
+    const row=document.createElement("div");row.className="year-grid";
+    groups[year].forEach(w=>{
+      const item=document.createElement("article");item.className="work";
+      const btn=document.createElement("button");btn.className="pic";btn.type="button";
+      const img=document.createElement("img");img.src=w.src;img.alt=w.title;btn.appendChild(img);
+      const info=document.createElement("div");info.className="info";
+      const t=document.createElement("span");t.textContent=w.title;
+      const d=document.createElement("span");d.className="medium";d.textContent=w.info;
+      info.append(t,d);item.append(btn,info);row.appendChild(item);
+      btn.onclick=()=>{lbImage.src=w.src;lbImage.alt=w.title;lightbox.classList.add("on");document.body.style.overflow="hidden"};
     });
-
+    s.appendChild(row);grid.appendChild(s);
   });
+}
 
+function closeLightbox(){lightbox.classList.remove("on");lbImage.removeAttribute("src");document.body.style.overflow=""}
+document.getElementById("lbClose").onclick=closeLightbox;
+lightbox.onclick=e=>{if(e.target===lightbox)closeLightbox()};
+document.onkeydown=e=>{if(e.key==="Escape")closeLightbox()};
 
-  function closeLightbox() {
+function parseNewWork(filename){
+  const m=filename.match(/DIFFERENCE\s*_?\s*(\d{3,4})/i);
+  if(!m)return null;
 
-    lightbox.classList.remove("active");
+  const y=filename.match(/(?:^|[^0-9])(20\d{2})(?:[^0-9]|$)/);
 
-    document.body.style.overflow = "";
+  // Supports 47cm×75cm, 47㎝×75㎝, 47 × 75 cm, 47x75cm, etc.
+  const s=filename.match(/(\d+(?:\.\d+)?)\s*(?:cm|㎝)?\s*[×x]\s*(\d+(?:\.\d+)?)\s*(?:cm|㎝)?/i);
 
-    lightboxImage.src = "";
+  return {
+    src:fileUrl(filename),
+    title:"DIFFERENCE "+m[1],
+    info:(s?s[1]+" × "+s[2]+" cm · ":"")+"Oil painting on wood panel"+(y?" · "+y[1]:""),
+    year:y?y[1]:"Other"
+  };
+}
 
-  }
-
-
-  closeButton.addEventListener("click", function(event) {
-
-    event.stopPropagation();
-
-    closeLightbox();
-
-  });
-
-
-  lightbox.addEventListener("click", function(event) {
-
-    if (event.target === lightbox) {
-      closeLightbox();
+async function loadWorks(){
+  const items=knownWorks.map(toWork);
+  try{
+    const r=await fetch("https://api.github.com/repos/namyongkim-art/namyongkim.github.io/contents/works?ref=main",{cache:"no-store"});
+    if(r.ok){
+      const files=await r.json();
+      const known=new Set(knownWorks.map(w=>w[0].toLowerCase()));
+      files.filter(f=>f.type==="file"&&/\.(jpe?g|png|webp)$/i.test(f.name)).forEach(f=>{
+        if(!known.has(f.name.toLowerCase())){
+          const work=parseNewWork(f.name);
+          if(work)items.push(work);
+        }
+      });
     }
-
-  });
-
-
-  document.addEventListener("keydown", function(event) {
-
-    if (event.key === "Escape") {
-      closeLightbox();
-    }
-
-  });
-
+  }catch(e){}
+  renderWorks(items);
+}
+loadWorks();
 </script>
-
-
 </body>
 </html>
