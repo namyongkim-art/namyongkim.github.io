@@ -25,6 +25,18 @@ section{max-width:1400px;margin:auto;padding:110px 40px}.title{font-size:14px;le
 footer{padding:38px 40px;border-top:1px solid #eee;font-size:11px;color:#888}
 @media(max-width:1000px){.year-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.pic{height:230px}}
 @media(max-width:700px){.nav{padding:17px 20px}.logo{font-size:14px}.links{gap:12px;flex-wrap:wrap;justify-content:flex-end;max-width:260px}.links a{font-size:10px}section{padding:80px 20px}.title{font-size:11px;margin-bottom:45px}.hero{min-height:75vh;padding:30px 20px 70px}.hero p{left:20px;font-size:10px}.year-section{margin-bottom:70px}.year-title{font-size:24px;margin-bottom:24px}.year-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:38px 16px}.pic{height:180px}.info{font-size:11px}.about{font-size:15px;line-height:2}.row{grid-template-columns:58px 1fr;gap:12px;font-size:11px}.contact{font-size:12px}footer{padding:28px 20px}}
+
+/* Image protection */
+img{
+  -webkit-user-drag:none;
+  user-select:none;
+  -webkit-user-select:none;
+}
+.pic,.hero img,.lb img{
+  -webkit-user-drag:none;
+  user-select:none;
+  -webkit-user-select:none;
+}
 </style>
 </head>
 <body>
@@ -242,6 +254,18 @@ async function loadWorks(){
   renderWorks(items);
 }
 loadWorks();
+
+/* Basic image protection: blocks common right-click, drag, and selection gestures.
+   It cannot prevent screenshots or determined users from retrieving web images. */
+document.addEventListener("contextmenu", e=>{
+  if(e.target.closest("img,.pic")) e.preventDefault();
+});
+document.addEventListener("dragstart", e=>{
+  if(e.target.closest("img,.pic")) e.preventDefault();
+});
+document.addEventListener("selectstart", e=>{
+  if(e.target.closest("img,.pic")) e.preventDefault();
+});
 </script>
 </body>
 </html>
