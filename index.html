@@ -255,6 +255,18 @@ async function loadWorks(){
   renderWorks(items);
 }
 loadWorks();
+
+document.addEventListener("contextmenu", e=>{
+  if(e.target.closest("img,.pic")) e.preventDefault();
+});
+
+document.addEventListener("dragstart", e=>{
+  if(e.target.closest("img,.pic")) e.preventDefault();
+});
+
+document.addEventListener("selectstart", e=>{
+  if(e.target.closest("img,.pic")) e.preventDefault();
+}); 
 </script>
 </body>
 </html>
